@@ -1,0 +1,188 @@
+.process {
+  padding: var(--section-pad-desktop);
+  background-color: white;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ——— Header ——— */
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.title {
+  font-family: 'Noto Serif', serif;
+  font-size: 48px;
+  color: var(--dark);
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  color: rgba(58, 42, 40, 0.6);
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ——— Timeline ——— */
+.timeline {
+  position: relative;
+  padding-top: 32px;
+}
+
+.baseLine {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(192, 133, 82, 0.2);
+}
+
+.progressLine {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 1;
+}
+
+.stepsRow {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ——— Number Circle ——— */
+.circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid var(--gold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.step:hover .circle {
+  background: var(--gold);
+}
+
+.circleNumber {
+  font-family: 'Noto Serif', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gold);
+  transition: color 0.3s;
+}
+
+.step:hover .circleNumber {
+  color: white;
+}
+
+/* ——— Step Content ——— */
+.stepContent {
+  padding-top: 28px;
+}
+
+.stepLabel {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(192, 133, 82, 0.6);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.stepTitle {
+  font-family: 'Noto Serif', serif;
+  font-size: 18px;
+  color: var(--dark);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.stepDesc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(58, 42, 40, 0.7);
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+/* ——— Tablet ——— */
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+  .title { font-size: 40px; }
+  .stepDesc { max-width: 160px; font-size: 12px; }
+}
+
+/* ——— Mobile: Vertical Layout ——— */
+@media (max-width: 768px) {
+  .process { padding: var(--section-pad-mobile); }
+  .container { padding: 0 24px; }
+  .header { margin-bottom: 48px; }
+  .title { font-size: 32px; }
+
+  .baseLine, .progressLine {
+    top: 0;
+    left: 32px;
+    right: auto;
+    width: 1px;
+    height: 100%;
+  }
+
+  .progressLine {
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+
+  .stepsRow {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .step {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .circle {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .circleNumber { font-size: 16px; }
+
+  .stepContent { padding-top: 0; }
+  .stepDesc { max-width: none; }
+}

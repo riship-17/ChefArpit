@@ -1,0 +1,13 @@
+/* index.css — minimal reset, project globals are in styles/globals.css */
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+p {
+  margin: 0;
+}

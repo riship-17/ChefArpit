@@ -1,0 +1,117 @@
+.testimonials {
+  padding: var(--section-pad-desktop);
+  background-color: var(--cream);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 48px;
+  text-align: center;
+}
+
+.header { margin-bottom: 60px; }
+
+.title {
+  font-family: 'Noto Serif', serif;
+  font-size: 48px;
+  color: var(--dark);
+  line-height: 1.15;
+}
+
+/* ——— Carousel ——— */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.decorQuote {
+  font-family: 'Noto Serif', serif;
+  font-size: 200px;
+  line-height: 0.8;
+  color: rgba(192, 133, 82, 0.12);
+  position: absolute;
+  top: 40px;
+  left: 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.quote {
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.8;
+  color: var(--dark);
+  max-width: 720px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.goldLine {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 40px auto 20px;
+}
+
+.name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+}
+
+.role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: rgba(58, 42, 40, 0.5);
+  display: block;
+  margin-top: 4px;
+}
+
+/* ——— Dots ——— */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(192, 133, 82, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.active {
+  background: var(--gold);
+  transform: scale(1.2);
+}
+
+/* ——— Mobile ——— */
+@media (max-width: 768px) {
+  .testimonials { padding: var(--section-pad-mobile); }
+  .container { padding: 0 24px; }
+  .title { font-size: 32px; }
+  .decorQuote { font-size: 120px; top: 20px; }
+  .quote { font-size: 18px; line-height: 1.7; }
+}

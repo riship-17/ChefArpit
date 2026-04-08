@@ -1,0 +1,23 @@
+.label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.label[data-light="true"] {
+  color: rgba(192, 133, 82, 0.8);
+}
+
+.label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin-top: 10px;
+  opacity: 0.6;
+}

@@ -1,0 +1,43 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.content {
+  text-align: center;
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: var(--gold);
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.title {
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 24px;
+}
+
+.line {
+  height: 1px;
+  background-color: var(--gold);
+  width: 0;
+}

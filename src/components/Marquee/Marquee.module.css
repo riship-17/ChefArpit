@@ -1,0 +1,34 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background: var(--cream);
+  padding: 32px 0;
+  border-top: 1px solid rgba(192, 133, 82, 0.2);
+  border-bottom: 1px solid rgba(192, 133, 82, 0.2);
+  cursor: default;
+}
+
+.inner {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+
+.separator {
+  color: var(--gold);
+  margin: 0 16px;
+  font-size: 18px;
+}
