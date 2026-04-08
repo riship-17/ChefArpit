@@ -37,7 +37,7 @@ const LoadingScreen = ({ onComplete }) => {
   return (
     <div className={styles.container} ref={containerRef}>
       <div className={styles.content}>
-        <span className={styles.label}>CHEF'S CHOICE CONSULTANCY</span>
+        <span className={styles.label}>CHEF CHOICE CONSULTANCY</span>
         <h1 className={styles.title}>Chef Arpit Macwan</h1>
         <div className={styles.line} ref={lineRef}></div>
       </div>

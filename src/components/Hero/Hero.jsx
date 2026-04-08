@@ -94,7 +94,7 @@ const Hero = () => {
 
         {/* Right Column */}
         <div className={styles.right}>
-          <div className={styles.decorText}>CHEF'S CHOICE</div>
+          <div className={styles.decorText}>CHEF CHOICE CONSULTANCY</div>
 
           <div className={styles.imageFrameOuter} ref={imageFrameRef}>
             <div className={styles.imageFrameInner}>

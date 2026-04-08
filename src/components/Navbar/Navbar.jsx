@@ -49,7 +49,7 @@ const Navbar = () => {
     >
       <div className={styles.container}>
         <div className={styles.logo}>
-          <span className={styles.logoLine1}>Chef's Choice</span>
+          <span className={styles.logoLine1}>Chef Choice Consultancy</span>
           <span className={styles.logoLine2}>by Chef Arpit Macwan</span>
         </div>
 

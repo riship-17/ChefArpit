@@ -113,7 +113,7 @@ const About = () => {
             <div className={styles.bio}>
               <p>
                 Chef Arpit Macwan is a distinguished culinary consultant and Brand Chef
-                based in Ahmedabad, Gujarat. As the founder of Chef's Choice Consultancy,
+                based in Ahmedabad, Gujarat. As the founder of Chef Choice Consultancy,
                 he specializes in transforming kitchens and elevating dining experiences
                 through innovative menu development and operational excellence.
               </p>

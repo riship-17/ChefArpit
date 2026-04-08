@@ -34,7 +34,7 @@ const Footer = () => {
           {/* Column 1: Brand */}
           <div className={styles.brand}>
             <div className={styles.logo}>
-              <span className={styles.logoName}>Chef's Choice Consultancy</span>
+              <span className={styles.logoName}>Chef Choice Consultancy</span>
               <span className={styles.logoSub}>by Chef Arpit Macwan</span>
             </div>
             <p className={styles.tagline}>
@@ -89,7 +89,7 @@ const Footer = () => {
         <div className={styles.divider}></div>
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            {currentYear} © All rights reserved by Chef's Choice Consultancy
+            {currentYear} © All rights reserved by Chef Choice Consultancy
           </p>
           <p className={styles.credit}>
             Designed with passion for culinary excellence
