@@ -98,7 +98,12 @@ const Hero = () => {
 
           <div className={styles.imageFrameOuter} ref={imageFrameRef}>
             <div className={styles.imageFrameInner}>
-              <ChefImage src="" label="AM" aspectRatio="4/5" />
+              <ChefImage 
+                src="https://res.cloudinary.com/dgry55pvk/image/upload/v1775677794/WhatsApp-Image-2025-06-04-at-11.36.27_ys7cik.jpg" 
+                alt="Chef Arpit Macwan" 
+                label="AM" 
+                aspectRatio="4/5" 
+              />
             </div>
           </div>
         </div>
