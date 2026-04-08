@@ -27,22 +27,22 @@
 }
 
 .logoName {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-personality);
   font-style: italic;
-  font-size: 22px;
+  font-size: 20px;
   color: var(--gold);
   line-height: 1.2;
 }
 
 .logoSub {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  color: rgba(255, 248, 240, 0.5);
+  font-family: var(--font-utility);
+  font-size: 11px;
+  color: rgba(255, 248, 240, 0.4);
   margin-top: 4px;
 }
 
 .tagline {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-serif-warm);
   font-size: 14px;
   color: rgba(255, 248, 240, 0.6);
   font-style: italic;
@@ -66,9 +66,9 @@
 }
 
 .colLabel {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-label);
   font-size: 11px;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   color: var(--gold);
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -81,9 +81,9 @@
 }
 
 .list li {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-condensed);
   font-size: 14px;
-  color: rgba(255, 248, 240, 0.6);
+  color: rgba(255, 248, 240, 0.55);
   padding: 6px 0;
 }
 
@@ -102,6 +102,12 @@
 
 .socialRow {
   margin-top: 24px;
+}
+
+.mono {
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  color: rgba(255, 248, 240, 0.5) !important;
 }
 
 .socialIcon {
@@ -129,15 +135,15 @@
 }
 
 .copyright {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-utility);
   font-size: 12px;
-  color: rgba(255, 248, 240, 0.35);
+  color: rgba(255, 248, 240, 0.3);
 }
 
 .credit {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-utility);
   font-size: 12px;
-  color: rgba(255, 248, 240, 0.35);
+  color: rgba(255, 248, 240, 0.3);
   font-style: italic;
 }
 

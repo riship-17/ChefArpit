@@ -33,7 +33,7 @@
 .quoteTop { position: relative; }
 
 .quoteMark {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-display);
   font-size: 120px;
   color: var(--gold);
   line-height: 0.5;
@@ -43,7 +43,7 @@
 }
 
 .quoteText {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 22px;
   line-height: 1.6;
@@ -51,7 +51,7 @@
 }
 
 .quoteAuthor {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 3px;
   color: var(--gold);
@@ -63,7 +63,7 @@
 .quoteBottom { margin-top: 48px; }
 
 .expertiseLabel {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-label);
   font-size: 10px;
   letter-spacing: 4px;
   color: rgba(192, 133, 82, 0.6);
@@ -81,8 +81,10 @@
 .tag {
   border: 1px solid rgba(192, 133, 82, 0.4);
   color: rgba(255, 248, 240, 0.8);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-family: var(--font-condensed);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   padding: 6px 14px;
   border-radius: 2px;
 }
@@ -91,9 +93,10 @@
 .right { }
 
 .title {
-  font-family: 'Noto Serif', serif;
-  font-size: 44px;
+  font-family: var(--font-display);
+  font-size: 48px;
   color: var(--dark);
+  font-weight: 700;
   margin-bottom: 0;
   line-height: 1.15;
 }
@@ -108,9 +111,9 @@
 .bio { margin-bottom: 40px; }
 
 .bio p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  line-height: 1.8;
+  font-family: var(--font-serif-warm);
+  font-size: 17px;
+  line-height: 1.85;
   color: rgba(58, 42, 40, 0.8);
   margin-bottom: 16px;
 }
@@ -137,7 +140,7 @@
 }
 
 .pillarTitle {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-editorial);
   font-size: 16px;
   color: var(--dark);
   font-weight: 600;
@@ -145,10 +148,9 @@
 }
 
 .pillarDesc {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-utility);
   font-size: 13px;
-  line-height: 1.5;
-  color: rgba(58, 42, 40, 0.6);
+  color: rgba(58, 42, 40, 0.65);
 }
 
 /* ——— Tablet ——— */

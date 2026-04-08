@@ -17,7 +17,7 @@
 }
 
 .title {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-display);
   font-size: 48px;
   color: var(--dark);
   margin-bottom: 20px;
@@ -25,7 +25,7 @@
 }
 
 .subtitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-serif-warm);
   font-size: 17px;
   color: rgba(58, 42, 40, 0.6);
   line-height: 1.7;
@@ -94,10 +94,11 @@
 }
 
 .circleNumber {
-  font-family: 'Noto Serif', serif;
-  font-size: 20px;
-  font-weight: 600;
+  font-family: var(--font-impact);
+  font-size: 24px;
+  font-weight: 400;
   color: var(--gold);
+  letter-spacing: 1px;
   transition: color 0.3s;
 }
 
@@ -111,16 +112,17 @@
 }
 
 .stepLabel {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-label);
   font-size: 10px;
   letter-spacing: 3px;
   color: rgba(192, 133, 82, 0.6);
   display: block;
   margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
 .stepTitle {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-editorial);
   font-size: 18px;
   color: var(--dark);
   font-weight: 600;
@@ -128,9 +130,9 @@
 }
 
 .stepDesc {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-utility);
   font-size: 13px;
-  line-height: 1.7;
+  line-height: 1.75;
   color: rgba(58, 42, 40, 0.7);
   max-width: 180px;
   margin: 0 auto;

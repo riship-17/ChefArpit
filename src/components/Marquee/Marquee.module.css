@@ -20,15 +20,16 @@
 }
 
 .text {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-label);
   font-size: 13px;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--brown);
 }
 
 .separator {
+  font-family: var(--font-label);
   color: var(--gold);
   margin: 0 16px;
-  font-size: 18px;
+  font-size: 13px;
 }

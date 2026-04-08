@@ -13,7 +13,7 @@
 .header { margin-bottom: 60px; }
 
 .title {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-display);
   font-size: 48px;
   color: var(--dark);
   line-height: 1.15;
@@ -27,10 +27,10 @@
 }
 
 .decorQuote {
-  font-family: 'Noto Serif', serif;
-  font-size: 200px;
-  line-height: 0.8;
-  color: rgba(192, 133, 82, 0.12);
+  font-family: var(--font-display);
+  font-size: 220px;
+  line-height: 0.7;
+  color: rgba(192, 133, 82, 0.1);
   position: absolute;
   top: 40px;
   left: 0;
@@ -44,7 +44,7 @@
 }
 
 .quote {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 22px;
   line-height: 1.8;
@@ -62,7 +62,7 @@
 }
 
 .name {
-  font-family: 'Oswald', sans-serif;
+  font-family: var(--font-label);
   font-size: 13px;
   letter-spacing: 3px;
   color: var(--gold);
@@ -71,9 +71,9 @@
 }
 
 .role {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-condensed);
   font-size: 13px;
-  color: rgba(58, 42, 40, 0.5);
+  color: rgba(58, 42, 40, 0.6);
   display: block;
   margin-top: 4px;
 }
