@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import SectionLabel from '../shared/SectionLabel/SectionLabel';
 import styles from './Testimonials.module.css';
 
 const testimonials = [
@@ -73,8 +72,8 @@ const Testimonials = () => {
     >
       <div className={styles.container}>
         <div className={styles.header}>
-          <SectionLabel>CLIENT VOICES</SectionLabel>
-          <h2 className={styles.title}>What Our Clients Say</h2>
+          <span className={styles.sectionLabel}>CLIENT VOICES</span>
+          <h2 className={styles.title}>WHAT OUR <span>CLIENTS</span> SAY</h2>
         </div>
 
         <div className={styles.carousel}>

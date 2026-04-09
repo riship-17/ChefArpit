@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import SectionLabel from '../shared/SectionLabel/SectionLabel';
 import styles from './Awards.module.css';
 
 const EASE = 'power3.out';
@@ -61,8 +60,8 @@ const Awards = () => {
     <section className={styles.awards} ref={sectionRef}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <SectionLabel light>RECOGNITION</SectionLabel>
-          <h2 className={styles.title}>Awards & Achievements</h2>
+          <span className={styles.sectionLabel}>RECOGNITION</span>
+          <h2 className={styles.title}>AWARDS & <span>ACHIEVEMENTS</span></h2>
           <p className={styles.subtitle}>
             A career defined by culinary excellence, industry recognition,
             and an unwavering commitment to raising the bar.
@@ -74,7 +73,7 @@ const Awards = () => {
             <div key={i} className={styles.card}>
               <div className={styles.icon}><TrophyIcon /></div>
               <span className={styles.year}>{award.year}</span>
-              <h4 className={styles.awardName}>{award.award}</h4>
+              <h4 className={styles.awardName}>{award.award.toUpperCase()}</h4>
               <p className={styles.body}>{award.body}</p>
               <div className={styles.cornerDecor}></div>
             </div>

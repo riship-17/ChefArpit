@@ -14,15 +14,16 @@ const LoadingScreen = ({ onComplete }) => {
     // Line growth animation
     tl.to(lineRef.current, {
       width: '80px',
-      duration: 1,
+      duration: 0.8,
+      delay: 0.5,
       ease: 'power2.inOut'
     });
 
-    // Exit animation
+    // Exit animation (starts at 1.4s)
     tl.to(containerRef.current, {
       opacity: 0,
-      duration: 0.6,
-      delay: 0.4,
+      duration: 0.5,
+      delay: 0.1, // timeline is already at 0.5 + 0.8 = 1.3s, add 0.1s to reach 1.4s
       onComplete: () => {
         setVisible(false);
         if (onComplete) onComplete();
@@ -38,7 +39,8 @@ const LoadingScreen = ({ onComplete }) => {
     <div className={styles.container} ref={containerRef}>
       <div className={styles.content}>
         <span className={styles.label}>CHEF CHOICE CONSULTANCY</span>
-        <h1 className={styles.title}>Chef Arpit Macwan</h1>
+        <h1 className={styles.title}>CHEF ARPIT MACWAN</h1>
+        <div className={styles.subtitle}>Culinary Consultant · Ahmedabad</div>
         <div className={styles.line} ref={lineRef}></div>
       </div>
     </div>

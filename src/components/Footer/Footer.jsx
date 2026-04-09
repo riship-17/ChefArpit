@@ -34,8 +34,8 @@ const Footer = () => {
           {/* Column 1: Brand */}
           <div className={styles.brand}>
             <div className={styles.logo}>
-              <span className={styles.logoName}>Chef Choice Consultancy</span>
-              <span className={styles.logoSub}>by Chef Arpit Macwan</span>
+              <span className={styles.logoName}>CHEF CHOICE CONSULTANCY</span>
+              <span className={styles.logoSub}>BY CHEF ARPIT MACWAN</span>
             </div>
             <p className={styles.tagline}>
               Crafting Excellence, One Kitchen at a Time.

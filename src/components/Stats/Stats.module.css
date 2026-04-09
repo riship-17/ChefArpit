@@ -16,11 +16,27 @@
   margin-bottom: 56px;
 }
 
+.sectionLabel {
+  display: block;
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  margin-bottom: 20px;
+}
+
 .title {
   font-family: var(--font-display);
-  font-size: 40px;
+  font-size: 56px;
+  letter-spacing: 2px;
   color: var(--cream);
   line-height: 1.15;
+}
+
+.title span {
+  color: var(--gold);
 }
 
 .grid {
@@ -50,26 +66,27 @@
 }
 
 .number {
-  font-family: var(--font-impact);
+  font-family: var(--font-display);
   font-size: 96px;
-  font-weight: 400;
+  letter-spacing: 2px;
   color: var(--gold);
   line-height: 1;
-  letter-spacing: 2px;
   margin-bottom: 8px;
 }
 
 .label {
   font-family: var(--font-condensed);
+  font-weight: 400;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: rgba(255, 248, 240, 0.55);
+  color: var(--cream-60);
 }
 
 /* ——— Tablet ——— */
 @media (max-width: 1024px) {
-  .number { font-size: 52px; }
+  .number { font-size: 64px; }
+  .title { font-size: 40px; }
 }
 
 /* ——— Mobile ——— */
@@ -88,5 +105,5 @@
     display: none;
   }
 
-  .number { font-size: 48px; }
+  .number { font-size: 64px; }
 }

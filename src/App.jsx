@@ -14,6 +14,8 @@ import Testimonials from './components/Testimonials/Testimonials';
 import Awards from './components/Awards/Awards';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import CaseStudies from './components/CaseStudies/CaseStudies';
+import MenuSamples from './components/MenuSamples/MenuSamples';
 import './styles/globals.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -39,6 +41,8 @@ function App() {
             <section id="services">
               <Services />
             </section>
+            <CaseStudies />
+            <MenuSamples />
             <Stats />
             <Process />
             <Testimonials />

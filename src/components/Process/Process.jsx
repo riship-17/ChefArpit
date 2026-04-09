@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import SectionLabel from '../shared/SectionLabel/SectionLabel';
 import styles from './Process.module.css';
 
 const EASE = 'power3.out';
@@ -66,8 +65,8 @@ const Process = () => {
     <section className={styles.process} ref={sectionRef}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <SectionLabel>HOW WE WORK</SectionLabel>
-          <h2 className={styles.title}>Your Journey to Culinary Excellence</h2>
+          <span className={styles.sectionLabel}>HOW WE WORK</span>
+          <h2 className={styles.title}>YOUR JOURNEY TO CULINARY <span>EXCELLENCE</span></h2>
           <p className={styles.subtitle}>
             A structured, proven approach that takes your F&B vision
             from idea to extraordinary reality.
@@ -88,7 +87,7 @@ const Process = () => {
                 </div>
                 <div className={styles.stepContent}>
                   <span className={styles.stepLabel}>STEP {step.number}</span>
-                  <h4 className={styles.stepTitle}>{step.title}</h4>
+                  <h4 className={styles.stepTitle}>{step.title.toUpperCase()}</h4>
                   <p className={styles.stepDesc}>{step.description}</p>
                 </div>
               </div>

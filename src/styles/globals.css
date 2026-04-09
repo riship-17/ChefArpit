@@ -7,15 +7,45 @@
 }
 
 :root {
-  --cream: #FFF8F0;
-  --gold: #C08552;
-  --brown: #8C5A3C;
-  --dark: #4B2E2B;
-  --white: #FFFFFF;
-  --text-body: #3a2a28;
-  --section-pad-desktop: 120px 0;
-  --section-pad-tablet: 80px 0;
-  --section-pad-mobile: 60px 0;
+  /* ─── FONTS ─── */
+  --font-display:    'Bebas Neue', sans-serif;
+  --font-body:       'Montserrat', sans-serif;
+  --font-condensed:  'Roboto Condensed', sans-serif;
+
+  /* ─── BRAND COLORS ─── */
+  --cream:           #FFF8F0;
+  --gold:            #C08552;
+  --gold-light:      #D4A574;
+  --gold-muted:      rgba(192, 133, 82, 0.55);
+  --gold-faint:      rgba(192, 133, 82, 0.12);
+  --brown:           #8C5A3C;
+  --brown-light:     #A67050;
+  --dark:            #4B2E2B;
+  --dark-80:         rgba(75, 46, 43, 0.8);
+  --dark-50:         rgba(75, 46, 43, 0.5);
+  --dark-30:         rgba(75, 46, 43, 0.3);
+  --white:           #FFFFFF;
+  --cream-80:        rgba(255, 248, 240, 0.8);
+  --cream-60:        rgba(255, 248, 240, 0.6);
+  --cream-30:        rgba(255, 248, 240, 0.3);
+
+  /* ─── EXTENDED FONT COLORS ─── */
+  /* Use these wherever color adds meaning or hierarchy */
+  --text-primary:    #3a2a28;
+  --text-secondary:  rgba(58, 42, 40, 0.72);
+  --text-muted:      rgba(58, 42, 40, 0.48);
+  --text-faint:      rgba(58, 42, 40, 0.28);
+  --text-gold:       #C08552;
+  --text-gold-dark:  #8C5A3C;
+  --text-on-dark:    #FFF8F0;
+  --text-on-dark-muted: rgba(255, 248, 240, 0.6);
+  --text-on-dark-faint: rgba(255, 248, 240, 0.35);
+  --text-accent-warm: #A67050;
+
+  /* ─── SECTION PADDING ─── */
+  --pad-desktop:     140px 0;
+  --pad-tablet:      90px 0;
+  --pad-mobile:      64px 0;
 }
 
 html {
@@ -25,8 +55,8 @@ html {
 
 body {
   background-color: var(--cream);
-  color: var(--text-body);
-  font-family: 'Montserrat', sans-serif;
+  color: var(--text-primary);
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.7;
   overflow-x: hidden;
@@ -36,20 +66,11 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Noto Serif', serif;
+  font-family: var(--font-display);
   color: var(--dark);
   line-height: 1.15;
 }
 
-.section-label {
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  display: block;
-  margin-bottom: 16px;
-}
 
 .container {
   max-width: 1280px;

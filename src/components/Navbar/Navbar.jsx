@@ -8,29 +8,37 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef(null);
 
+  const [activeSection, setActiveSection] = useState('home');
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80);
+      
+      // Update active section
+      const sections = navLinks.map(link => link.href.substring(1));
+      let current = '';
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && window.scrollY >= section.offsetTop - 100) {
+          current = sections[i];
+          break;
+        }
+      }
+      if (current !== activeSection) setActiveSection(current);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [activeSection]);
 
   useGSAP(() => {
+    gsap.from(`.${styles.topStripText}`, {
+      y: -20, opacity: 0, duration: 0.5, ease: 'power2.out', delay: 1.2
+    });
     gsap.from(`.${styles.navLink}`, {
-      y: -20,
-      opacity: 0,
-      duration: 0.5,
-      stagger: 0.08,
-      ease: 'power2.out',
-      delay: 1.6
+      y: -20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out', delay: 1.6
     });
     gsap.from(`.${styles.logo}`, {
-      x: -30,
-      opacity: 0,
-      duration: 0.6,
-      ease: 'power2.out',
-      delay: 1.4
+      x: -30, opacity: 0, duration: 0.6, ease: 'power2.out', delay: 1.4
     });
   }, { scope: navRef });
 
@@ -38,6 +46,7 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
+    { name: 'Case Studies', href: '#case-studies' },
     { name: 'Awards', href: '#awards' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -47,16 +56,28 @@ const Navbar = () => {
       ref={navRef}
       className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}
     >
-      <div className={styles.container}>
-        <div className={styles.logo}>
-          <span className={styles.logoLine1}>Chef Choice Consultancy</span>
-          <span className={styles.logoLine2}>by Chef Arpit Macwan</span>
+      <div className={`${styles.topStrip} ${isScrolled ? styles.hidden : ''}`}>
+        <div className={styles.topStripText}>
+          arpitrmacwan@gmail.com  ·  +91-720-1020-208  ·  Mon–Fri: 11AM–8PM
         </div>
+      </div>
+      
+      <div className={styles.navBody}>
+        <div className={styles.container}>
+          <div className={styles.logo}>
+            <span className={styles.logoLine1}>CHEF CHOICE</span>
+            <span className={styles.logoLine2}>CONSULTANCY</span>
+            <span className={styles.logoLine3}>by Chef Arpit Macwan</span>
+          </div>
 
         {/* Desktop Links */}
         <div className={styles.links}>
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className={styles.navLink}>
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className={`${styles.navLink} ${activeSection === link.href.substring(1) ? styles.navLinkActive : ''}`}
+            >
               {link.name}
             </a>
           ))}
@@ -89,8 +110,9 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </nav>
-  );
+    </div>
+  </nav>
+);
 };
 
 export default Navbar;

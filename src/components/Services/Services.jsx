@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import SectionLabel from '../shared/SectionLabel/SectionLabel';
 import styles from './Services.module.css';
 
 const EASE = 'power3.out';
@@ -193,8 +192,8 @@ const Services = () => {
       <div className={styles.container}>
         {/* Section Header */}
         <div className={styles.header}>
-          <SectionLabel>WHAT WE OFFER</SectionLabel>
-          <h2 className={styles.title}>Services Built for F&B Excellence</h2>
+          <span className={styles.sectionLabel}>WHAT WE OFFER</span>
+          <h2 className={styles.title}>SERVICES BUILT FOR F&B <span>EXCELLENCE</span></h2>
           <p className={styles.subtitle}>
             From concept to kitchen, from menu to mastery — every service
             is designed to deliver measurable results and unforgettable dining experiences.
@@ -230,9 +229,9 @@ const Services = () => {
         <div className={styles.premiumCard} ref={premiumRef}>
           <div className={styles.premiumLeft}>
             <span className={styles.premiumNumeral}>VII</span>
-            <SectionLabel light>PREMIUM SERVICE</SectionLabel>
+            <span className={styles.premiumLabel}>PREMIUM SERVICE</span>
             <h3 className={styles.premiumTitle}>
-              Exclusive Experiences, Curated for the Extraordinary
+              EXCLUSIVE EXPERIENCES, CURATED FOR THE EXTRAORDINARY
             </h3>
             <p className={styles.premiumDesc}>
               From intimate chef's table dinners to large-scale luxury
@@ -250,7 +249,7 @@ const Services = () => {
               ))}
             </ul>
             <a href="#contact" className={styles.premiumCta}>
-              Enquire About Private Events →
+              ENQUIRE ABOUT PRIVATE EVENTS →
             </a>
           </div>
         </div>

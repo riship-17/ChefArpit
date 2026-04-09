@@ -20,19 +20,28 @@
 }
 
 .label {
-  font-family: 'Oswald', sans-serif;
-  font-size: 12px;
-  letter-spacing: 6px;
-  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 10px;
+  color: var(--gold-muted);
   margin-bottom: 20px;
-  opacity: 0.8;
 }
 
 .title {
-  font-family: 'Noto Serif', serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(32px, 5vw, 48px);
+  font-family: var(--font-display);
+  font-size: 72px;
+  letter-spacing: 6px;
+  color: var(--cream);
+  line-height: 1;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--text-on-dark-muted);
+  margin-top: 12px;
   margin-bottom: 24px;
 }
 

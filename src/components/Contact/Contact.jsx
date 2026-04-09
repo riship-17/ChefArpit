@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import SectionLabel from '../shared/SectionLabel/SectionLabel';
 import styles from './Contact.module.css';
 
 const EASE = 'power3.out';
@@ -102,9 +101,9 @@ const Contact = () => {
 
           {/* Left Column */}
           <div className={styles.left}>
-            <SectionLabel>GET IN TOUCH</SectionLabel>
+            <span className={styles.sectionLabel}>GET IN TOUCH</span>
             <h2 className={styles.title}>
-              Let's Build Something Extraordinary Together
+              LET'S BUILD SOMETHING <span>EXTRAORDINARY</span> TOGETHER
             </h2>
             <p className={styles.subtitle}>
               Whether you're launching a new restaurant, optimizing an existing one,
@@ -153,7 +152,7 @@ const Contact = () => {
           {/* Right Column — Form */}
           <div className={styles.right}>
             <form className={styles.form} ref={formRef} onSubmit={handleSubmit}>
-              <h3 className={styles.formHeading}>Send Us a Message</h3>
+              <h3 className={styles.formHeading}>SEND US A MESSAGE</h3>
 
               <div className={styles.field}>
                 <input

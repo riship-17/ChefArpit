@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import SectionLabel from '../shared/SectionLabel/SectionLabel';
 import styles from './Stats.module.css';
 
 const stats = [
@@ -43,8 +42,8 @@ const Stats = () => {
     <section className={styles.statsStrip} ref={sectionRef}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <SectionLabel light>BY THE NUMBERS</SectionLabel>
-          <h2 className={styles.title}>A Legacy Built on Results</h2>
+          <span className={styles.sectionLabel}>BY THE NUMBERS</span>
+          <h2 className={styles.title}>A LEGACY BUILT ON <span>RESULTS</span></h2>
         </div>
 
         <div className={styles.grid}>

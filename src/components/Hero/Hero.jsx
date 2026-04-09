@@ -65,19 +65,20 @@ const Hero = () => {
           </span>
 
           <h1 className={styles.heroH1} ref={heroH1Ref}>
-            <span>Where <em>Culinary Vision</em></span>
-            <span>Meets Excellence</span>
+            <span>WHERE CULINARY</span>
+            <span className={styles.accentLine}>VISION MEETS</span>
+            <span className={styles.heavyLine}>EXCELLENCE</span>
           </h1>
 
           <p className={styles.heroSub} ref={heroSubRef}>
             Chef Arpit Macwan transforms restaurants, hotels, and food brands into
-            extraordinary dining destinations — through strategy, creativity, and
+            <strong> extraordinary dining destinations </strong> — through strategy, creativity, and
             15+ years of mastery.
           </p>
 
           <div className={styles.ctaGroup} ref={heroBtnsRef}>
-            <button className={styles.primaryBtn}>Explore Our Services</button>
-            <button className={styles.secondaryBtn}>Book a Consultation</button>
+            <button className={styles.primaryBtn}>EXPLORE OUR SERVICES</button>
+            <button className={styles.secondaryBtn}>BOOK A CONSULTATION</button>
           </div>
 
           <div className={styles.statsBar}>
@@ -94,7 +95,7 @@ const Hero = () => {
 
         {/* Right Column */}
         <div className={styles.right}>
-          <div className={styles.decorText}>CHEF CHOICE CONSULTANCY</div>
+          <div className={styles.decorText}>CHEF CHOICE</div>
 
           <div className={styles.imageFrameOuter} ref={imageFrameRef}>
             <div className={styles.imageFrameInner}>
