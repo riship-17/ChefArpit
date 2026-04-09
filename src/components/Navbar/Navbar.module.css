@@ -4,8 +4,11 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  transition: background-color 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
-  background-color: transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(255, 248, 240, 0.6);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-bottom: 1px solid rgba(192, 133, 82, 0.08);
 }
 
 .navBody {
@@ -15,7 +18,9 @@
 
 .scrolled {
   background-color: var(--dark);
-  box-shadow: 0 2px 20px rgba(75, 46, 43, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid var(--gold-faint);
+  backdrop-filter: blur(20px);
 }
 
 .scrolled .navBody {

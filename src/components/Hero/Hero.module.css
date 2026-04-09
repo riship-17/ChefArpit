@@ -47,26 +47,37 @@
 
 .heroH1 {
   font-family: var(--font-display);
-  font-size: 96px;
-  letter-spacing: 3px;
-  line-height: 1.1;
+  font-size: clamp(64px, 8vw, 108px);
+  letter-spacing: 2px;
+  line-height: 0.95;
   color: var(--dark);
   font-weight: 400;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .heroH1 span {
   display: block;
 }
 
+.heroH1 span:first-child {
+  letter-spacing: 0.15em;
+  font-size: 0.6em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
 .accentLine {
   color: var(--gold);
+  font-style: italic;
+  letter-spacing: 1px;
 }
 
 .heavyLine {
-  font-size: 120px;
-  letter-spacing: -2px;
+  font-size: 1.2em;
+  letter-spacing: -0.02em;
   color: var(--dark);
+  position: relative;
+  text-shadow: 2px 2px 0px var(--gold-faint);
 }
 
 .heroSub {
