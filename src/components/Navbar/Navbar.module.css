@@ -61,13 +61,13 @@
   font-weight: 400;
   font-size: 11px;
   letter-spacing: 1px;
-  color: var(--black-60);
+  color: #8B6F47;
   line-height: 1;
   margin-top: 4px;
 }
 
 .topStrip {
-  background: var(--brown);
+  background: var(--brown-light);
   padding: 8px 0;
   text-align: center;
   transition: all 0.3s ease;
@@ -102,7 +102,7 @@
 .navLink {
   font-family: var(--font-condensed);
   font-weight: 700;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--gold);
