@@ -1,6 +1,6 @@
 .statsStrip {
   background-color: #4B2E2B;
-  padding: 80px 0;
+  padding: var(--section-pad-desktop);
   color: var(--cream);
   width: 100%;
 }
@@ -91,7 +91,7 @@
 
 /* ——— Mobile ——— */
 @media (max-width: 768px) {
-  .statsStrip { padding: 60px 0; }
+  .statsStrip { padding: var(--section-pad-mobile); }
   .container { padding: 0 24px; }
   .header { margin-bottom: 40px; }
   .title { font-size: 32px; }

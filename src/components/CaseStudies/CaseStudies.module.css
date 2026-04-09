@@ -1,6 +1,6 @@
 .section {
   background: #FFFFFF;
-  padding: 140px 0;
+  padding: var(--section-pad-desktop);
 }
 
 .container {
@@ -444,7 +444,7 @@
 
 /* ——— Tablet ——— */
 @media (max-width: 1024px) {
-  .section { padding: 90px 0; }
+  .section { padding: var(--section-pad-tablet); }
   
   .leftPanel { 
     width: 40%; 
@@ -478,7 +478,7 @@
 
 /* ——— Mobile ——— */
 @media (max-width: 768px) {
-  .section { padding: 70px 0; }
+  .section { padding: var(--section-pad-mobile); }
   .container { padding: 0 24px; }
   
   .headerLine {

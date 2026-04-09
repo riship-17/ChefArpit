@@ -42,17 +42,7 @@
   padding: 40px 0;
 }
 
-.decorQuote {
-  font-family: var(--font-display);
-  font-size: 240px;
-  line-height: 0.7;
-  color: rgba(192, 133, 82, 0.1);
-  position: absolute;
-  top: 40px;
-  left: 0;
-  user-select: none;
-  pointer-events: none;
-}
+
 
 .content {
   position: relative;
@@ -131,6 +121,6 @@
   .testimonials { padding: var(--section-pad-mobile); }
   .container { padding: 0 24px; }
   .title { font-size: 40px; }
-  .decorQuote { font-size: 140px; top: 20px; }
+
   .quote { font-size: 18px; line-height: 1.7; }
 }

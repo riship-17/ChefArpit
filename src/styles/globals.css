@@ -43,9 +43,9 @@
   --text-accent-warm: #A67050;
 
   /* ─── SECTION PADDING ─── */
-  --pad-desktop:     140px 0;
-  --pad-tablet:      90px 0;
-  --pad-mobile:      64px 0;
+  --section-pad-desktop:     180px 0;
+  --section-pad-tablet:      120px 0;
+  --section-pad-mobile:      100px 0;
 }
 
 html {

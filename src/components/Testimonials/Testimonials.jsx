@@ -77,9 +77,6 @@ const Testimonials = () => {
         </div>
 
         <div className={styles.carousel}>
-          {/* Large decorative quote mark */}
-          <span className={styles.decorQuote}>\u201C</span>
-
           <div className={styles.content} ref={contentRef}>
             <p className={styles.quote}>{testimonials[active].quote}</p>
 
