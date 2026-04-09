@@ -11,7 +11,7 @@ import Stats from './components/Stats/Stats';
 import Marquee from './components/Marquee/Marquee';
 import Process from './components/Process/Process';
 import Testimonials from './components/Testimonials/Testimonials';
-import Awards from './components/Awards/Awards';
+import Gallery from './components/Gallery/Gallery';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import CaseStudies from './components/CaseStudies/CaseStudies';
@@ -46,9 +46,7 @@ function App() {
             <Stats />
             <Process />
             <Testimonials />
-            <section id="awards">
-              <Awards />
-            </section>
+            <Gallery />
             <section id="contact">
               <Contact />
             </section>

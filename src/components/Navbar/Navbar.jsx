@@ -47,7 +47,7 @@ const Navbar = () => {
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
     { name: 'Case Studies', href: '#case-studies' },
-    { name: 'Awards', href: '#awards' },
+    { name: 'Gallery', href: '#gallery' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -65,9 +65,11 @@ const Navbar = () => {
       <div className={styles.navBody}>
         <div className={styles.container}>
           <div className={styles.logo}>
-            <span className={styles.logoLine1}>CHEF CHOICE</span>
-            <span className={styles.logoLine2}>CONSULTANCY</span>
-            <span className={styles.logoLine3}>by Chef Arpit Macwan</span>
+            <img src="https://ik.imagekit.io/zvgp583fb/WhatsApp%20Image%202026-04-09%20at%208.51.08%20PM.jpeg" alt="Chef Choice Consultancy" className={styles.logoImg} />
+            <div className={styles.logoText}>
+              <span className={styles.logoName}>CHEF CHOICE CONSULTANCY</span>
+              <span className={styles.logoSub}>by Chef Arpit Macwan</span>
+            </div>
           </div>
 
         {/* Desktop Links */}

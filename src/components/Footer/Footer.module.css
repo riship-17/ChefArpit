@@ -22,25 +22,38 @@
 
 .logo {
   display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.logoText {
+  display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 .logoName {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: 20px;
   color: var(--gold);
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: 1px;
 }
 
 .logoSub {
   font-family: var(--font-condensed);
   font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 2px;
+  font-size: 10px;
+  letter-spacing: 1px;
   color: var(--cream-40);
   margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.logoImg {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
 }
 
 .tagline {
