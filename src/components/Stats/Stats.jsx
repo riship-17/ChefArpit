@@ -33,7 +33,7 @@ const Stats = () => {
           },
           scrollTrigger: {
             trigger: el,
-            start: 'top 85%',
+            start: 'top 90%',
             once: true,
             invalidateOnRefresh: true
           }

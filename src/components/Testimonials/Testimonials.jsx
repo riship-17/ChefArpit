@@ -35,7 +35,7 @@ const Testimonials = () => {
       opacity: 0, y: 30, duration: 1,
       onStart: () => { sectionRef.current.style.willChange = 'opacity, transform'; },
       onComplete: () => { sectionRef.current.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', invalidateOnRefresh: true }
+      scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
     });
   }, { scope: sectionRef });
 

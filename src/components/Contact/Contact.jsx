@@ -69,7 +69,7 @@ const Contact = () => {
       x: -50, opacity: 0, duration: 0.8, ease: EASE,
       onStart: () => { leftPane.style.willChange = 'opacity, transform'; },
       onComplete: () => { leftPane.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', invalidateOnRefresh: true }
+      scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
     });
 
     const fields = formRef.current.querySelectorAll(`.${styles.field}`);
@@ -77,7 +77,7 @@ const Contact = () => {
       x: 40, opacity: 0, stagger: 0.08, duration: 0.6, ease: EASE,
       onStart: () => { fields.forEach(f => f.style.willChange = 'opacity, transform') },
       onComplete: () => { fields.forEach(f => f.style.willChange = 'auto') },
-      scrollTrigger: { trigger: formRef.current, start: 'top 75%', invalidateOnRefresh: true }
+      scrollTrigger: { trigger: formRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
     });
   }, { scope: sectionRef });
 

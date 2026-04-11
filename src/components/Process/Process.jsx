@@ -54,8 +54,8 @@ const Process = () => {
           scaleY: 1,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: isDesktop ? 'top 60%' : 'top 60%',
-            end: isDesktop ? 'bottom 70%' : 'bottom 80%',
+            start: isDesktop ? 'top 80%' : 'top 85%',
+            end: isDesktop ? 'bottom 40%' : 'bottom 50%',
             scrub: 1,
             invalidateOnRefresh: true
           }
@@ -70,7 +70,7 @@ const Process = () => {
           y: 40, opacity: 0, stagger: 0.15, duration: 0.7, ease: EASE,
           onStart: () => { stepEls.forEach(el => el.style.willChange = 'opacity, transform') },
           onComplete: () => { stepEls.forEach(el => el.style.willChange = 'auto') },
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 65%', invalidateOnRefresh: true }
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
         });
       } else {
         stepEls.forEach((el) => {
@@ -78,7 +78,7 @@ const Process = () => {
             y: 30, opacity: 0, duration: 0.6, ease: EASE,
             onStart: () => { el.style.willChange = 'opacity, transform' },
             onComplete: () => { el.style.willChange = 'auto' },
-            scrollTrigger: { trigger: el, start: 'top 85%', invalidateOnRefresh: true }
+            scrollTrigger: { trigger: el, start: 'top 95%', once: true, invalidateOnRefresh: true }
           });
         });
       }
