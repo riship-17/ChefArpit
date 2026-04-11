@@ -12,29 +12,22 @@ const Masonry = ({ items }) => {
   useGSAP(() => {
     const items = gsap.utils.toArray(`.${styles.masonryItem}`);
     
-    gsap.from(items, {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.08,
-      ease: 'power3.out',
-      onStart: () => {
-        items.forEach(el => {
-          el.style.willChange = 'transform, opacity';
-        });
-      },
-      onComplete: () => {
-        items.forEach(el => {
-          el.style.willChange = 'auto';
-        });
-      },
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 80%',
-        once: true,
-        invalidateOnRefresh: true,
-        toggleActions: 'play none none none'
-      }
+    items.forEach(el => {
+      gsap.from(el, {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        onStart: () => { el.style.willChange = 'transform, opacity'; },
+        onComplete: () => { el.style.willChange = 'auto'; },
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true,
+          invalidateOnRefresh: true,
+          toggleActions: 'play none none none'
+        }
+      });
     });
   }, { scope: containerRef });
 

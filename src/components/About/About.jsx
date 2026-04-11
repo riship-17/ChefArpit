@@ -36,26 +36,47 @@ const About = () => {
   const pillarsGridRef = useRef(null);
 
   useGSAP(() => {
-    gsap.from(leftRef.current, {
-      x: -60, opacity: 0, duration: 0.9, ease: EASE,
-      onStart: () => { leftRef.current.style.willChange = 'opacity, transform'; },
-      onComplete: () => { leftRef.current.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', invalidateOnRefresh: true }
-    });
+    let mm = gsap.matchMedia();
 
-    gsap.from(rightRef.current, {
-      x: 60, opacity: 0, duration: 0.9, ease: EASE, delay: 0.15,
-      onStart: () => { rightRef.current.style.willChange = 'opacity, transform'; },
-      onComplete: () => { rightRef.current.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', invalidateOnRefresh: true }
-    });
+    mm.add({
+      isDesktop: "(min-width: 901px)",
+      isMobile: "(max-width: 900px)"
+    }, (context) => {
+      let { isDesktop } = context.conditions;
 
-    const pillarEls = pillarsGridRef.current.querySelectorAll(`.${styles.pillar}`);
-    gsap.from(pillarEls, {
-      y: 30, opacity: 0, duration: 0.6, stagger: 0.12,
-      onStart: () => { pillarEls.forEach(el => el.style.willChange = 'opacity, transform') },
-      onComplete: () => { pillarEls.forEach(el => el.style.willChange = 'auto') },
-      scrollTrigger: { trigger: pillarsGridRef.current, start: 'top 80%', invalidateOnRefresh: true }
+      gsap.from(leftRef.current, {
+        x: -60, opacity: 0, duration: 0.9, ease: EASE,
+        onStart: () => { leftRef.current.style.willChange = 'opacity, transform'; },
+        onComplete: () => { leftRef.current.style.willChange = 'auto'; },
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', invalidateOnRefresh: true }
+      });
+
+      gsap.from(rightRef.current, {
+        x: 60, opacity: 0, duration: 0.9, ease: EASE, delay: 0.15,
+        onStart: () => { rightRef.current.style.willChange = 'opacity, transform'; },
+        onComplete: () => { rightRef.current.style.willChange = 'auto'; },
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', invalidateOnRefresh: true }
+      });
+
+      const pillarEls = pillarsGridRef.current.querySelectorAll(`.${styles.pillar}`);
+      
+      if (isDesktop) {
+        gsap.from(pillarEls, {
+          y: 30, opacity: 0, duration: 0.6, stagger: 0.12,
+          onStart: () => { pillarEls.forEach(el => el.style.willChange = 'opacity, transform') },
+          onComplete: () => { pillarEls.forEach(el => el.style.willChange = 'auto') },
+          scrollTrigger: { trigger: pillarsGridRef.current, start: 'top 80%', invalidateOnRefresh: true }
+        });
+      } else {
+        pillarEls.forEach((el) => {
+          gsap.from(el, {
+            y: 30, opacity: 0, duration: 0.6, ease: EASE,
+            onStart: () => { el.style.willChange = 'opacity, transform' },
+            onComplete: () => { el.style.willChange = 'auto' },
+            scrollTrigger: { trigger: el, start: 'top 85%', invalidateOnRefresh: true }
+          });
+        });
+      }
     });
   }, { scope: sectionRef });
 

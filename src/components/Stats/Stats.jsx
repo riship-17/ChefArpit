@@ -32,8 +32,8 @@ const Stats = () => {
             el.textContent = Math.round(this.targets()[0].val) + suffix;
           },
           scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 70%',
+            trigger: el,
+            start: 'top 85%',
             once: true,
             invalidateOnRefresh: true
           }

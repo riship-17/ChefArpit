@@ -61,15 +61,27 @@ const Process = () => {
           }
         }
       );
-    });
 
-    // Steps stagger entry
-    const stepEls = sectionRef.current.querySelectorAll(`.${styles.step}`);
-    gsap.from(stepEls, {
-      y: 40, opacity: 0, stagger: 0.15, duration: 0.7, ease: EASE,
-      onStart: () => { stepEls.forEach(el => el.style.willChange = 'opacity, transform') },
-      onComplete: () => { stepEls.forEach(el => el.style.willChange = 'auto') },
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 65%', invalidateOnRefresh: true }
+      // Steps stagger entry
+      const stepEls = sectionRef.current.querySelectorAll(`.${styles.step}`);
+      
+      if (isDesktop) {
+        gsap.from(stepEls, {
+          y: 40, opacity: 0, stagger: 0.15, duration: 0.7, ease: EASE,
+          onStart: () => { stepEls.forEach(el => el.style.willChange = 'opacity, transform') },
+          onComplete: () => { stepEls.forEach(el => el.style.willChange = 'auto') },
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 65%', invalidateOnRefresh: true }
+        });
+      } else {
+        stepEls.forEach((el) => {
+          gsap.from(el, {
+            y: 30, opacity: 0, duration: 0.6, ease: EASE,
+            onStart: () => { el.style.willChange = 'opacity, transform' },
+            onComplete: () => { el.style.willChange = 'auto' },
+            scrollTrigger: { trigger: el, start: 'top 85%', invalidateOnRefresh: true }
+          });
+        });
+      }
     });
   }, { scope: sectionRef });
 

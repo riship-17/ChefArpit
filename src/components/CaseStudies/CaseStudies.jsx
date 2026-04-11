@@ -140,12 +140,32 @@ const CaseStudies = () => {
 
       // Right panel content fades up in sequence:
       const rightEls = card.querySelectorAll(`.${styles.challengeCol}, .${styles.approachCol}, .${styles.metricsRow}`);
-      gsap.from(rightEls, {
-        y: 30, opacity: 0, stagger: 0.15, duration: 0.7, ease: EASE,
-        delay: 0.2,
-        onStart: () => { rightEls.forEach(el => el.style.willChange = 'opacity, transform'); },
-        onComplete: () => { rightEls.forEach(el => el.style.willChange = 'auto'); },
-        scrollTrigger: { trigger: card, start: "top 75%", invalidateOnRefresh: true }
+      
+      let mm = gsap.matchMedia();
+      mm.add({
+        isDesktop: "(min-width: 901px)",
+        isMobile: "(max-width: 900px)"
+      }, (context) => {
+        let { isDesktop } = context.conditions;
+        
+        if (isDesktop) {
+          gsap.from(rightEls, {
+            y: 30, opacity: 0, stagger: 0.15, duration: 0.7, ease: EASE,
+            delay: 0.2,
+            onStart: () => { rightEls.forEach(el => el.style.willChange = 'opacity, transform'); },
+            onComplete: () => { rightEls.forEach(el => el.style.willChange = 'auto'); },
+            scrollTrigger: { trigger: card, start: "top 75%", invalidateOnRefresh: true }
+          });
+        } else {
+          rightEls.forEach((el) => {
+            gsap.from(el, {
+              y: 30, opacity: 0, duration: 0.6, ease: EASE,
+              onStart: () => { el.style.willChange = 'opacity, transform'; },
+              onComplete: () => { el.style.willChange = 'auto'; },
+              scrollTrigger: { trigger: el, start: "top 85%", invalidateOnRefresh: true }
+            });
+          });
+        }
       });
 
       // Metric numbers count up:
