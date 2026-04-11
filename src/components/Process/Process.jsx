@@ -54,7 +54,7 @@ const Process = () => {
           scaleY: 1,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: isDesktop ? 'top 80%' : 'top 85%',
+            start: 'top bottom',
             end: isDesktop ? 'bottom 40%' : 'bottom 50%',
             scrub: 1,
             invalidateOnRefresh: true
@@ -67,18 +67,18 @@ const Process = () => {
       
       if (isDesktop) {
         gsap.from(stepEls, {
-          y: 40, opacity: 0, stagger: 0.15, duration: 0.7, ease: EASE,
+          y: 20, opacity: 0, stagger: 0.06, duration: 0.4, ease: EASE,
           onStart: () => { stepEls.forEach(el => el.style.willChange = 'opacity, transform') },
           onComplete: () => { stepEls.forEach(el => el.style.willChange = 'auto') },
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
+          scrollTrigger: { trigger: sectionRef.current, start: 'top bottom', once: true, invalidateOnRefresh: true }
         });
       } else {
         stepEls.forEach((el) => {
           gsap.from(el, {
-            y: 30, opacity: 0, duration: 0.6, ease: EASE,
+            y: 15, opacity: 0, duration: 0.35, ease: EASE,
             onStart: () => { el.style.willChange = 'opacity, transform' },
             onComplete: () => { el.style.willChange = 'auto' },
-            scrollTrigger: { trigger: el, start: 'top 95%', once: true, invalidateOnRefresh: true }
+            scrollTrigger: { trigger: el, start: 'top bottom', once: true, invalidateOnRefresh: true }
           });
         });
       }

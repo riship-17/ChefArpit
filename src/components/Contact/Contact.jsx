@@ -66,18 +66,18 @@ const Contact = () => {
   useGSAP(() => {
     const leftPane = sectionRef.current.querySelector(`.${styles.left}`);
     gsap.from(leftPane, {
-      x: -50, opacity: 0, duration: 0.8, ease: EASE,
+      x: -25, opacity: 0, duration: 0.4, ease: EASE,
       onStart: () => { leftPane.style.willChange = 'opacity, transform'; },
       onComplete: () => { leftPane.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
+      scrollTrigger: { trigger: sectionRef.current, start: 'top bottom', once: true, invalidateOnRefresh: true }
     });
 
     const fields = formRef.current.querySelectorAll(`.${styles.field}`);
     gsap.from(fields, {
-      x: 40, opacity: 0, stagger: 0.08, duration: 0.6, ease: EASE,
+      x: 20, opacity: 0, stagger: 0.04, duration: 0.35, ease: EASE,
       onStart: () => { fields.forEach(f => f.style.willChange = 'opacity, transform') },
       onComplete: () => { fields.forEach(f => f.style.willChange = 'auto') },
-      scrollTrigger: { trigger: formRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
+      scrollTrigger: { trigger: formRef.current, start: 'top bottom', once: true, invalidateOnRefresh: true }
     });
   }, { scope: sectionRef });
 

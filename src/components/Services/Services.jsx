@@ -164,27 +164,27 @@ const Services = () => {
       
       if (isDesktop) {
         gsap.from(cards, {
-          y: 50, opacity: 0, duration: 0.7, stagger: 0.1, ease: EASE,
+          y: 20, opacity: 0, duration: 0.4, stagger: 0.05, ease: EASE,
           onStart: () => { cards.forEach(card => card.style.willChange = 'opacity, transform') },
           onComplete: () => { cards.forEach(card => card.style.willChange = 'auto') },
-          scrollTrigger: { trigger: gridRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
+          scrollTrigger: { trigger: gridRef.current, start: 'top bottom', once: true, invalidateOnRefresh: true }
         });
       } else {
         cards.forEach(card => {
           gsap.from(card, {
-            y: 40, opacity: 0, duration: 0.6, ease: EASE,
+            y: 20, opacity: 0, duration: 0.35, ease: EASE,
             onStart: () => { card.style.willChange = 'opacity, transform' },
             onComplete: () => { card.style.willChange = 'auto' },
-            scrollTrigger: { trigger: card, start: 'top 95%', once: true, invalidateOnRefresh: true }
+            scrollTrigger: { trigger: card, start: 'top bottom', once: true, invalidateOnRefresh: true }
           });
         });
       }
 
       gsap.from(premiumRef.current, {
-        y: 40, opacity: 0, duration: 0.8, ease: EASE,
+        y: 20, opacity: 0, duration: 0.4, ease: EASE,
         onStart: () => { premiumRef.current.style.willChange = 'opacity, transform'; },
         onComplete: () => { premiumRef.current.style.willChange = 'auto'; },
-        scrollTrigger: { trigger: premiumRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
+        scrollTrigger: { trigger: premiumRef.current, start: 'top bottom', once: true, invalidateOnRefresh: true }
       });
     });
   }, { scope: sectionRef });

@@ -32,10 +32,10 @@ const Testimonials = () => {
 
   useGSAP(() => {
     gsap.from(sectionRef.current, {
-      opacity: 0, y: 30, duration: 1,
+      opacity: 0, y: 15, duration: 0.4,
       onStart: () => { sectionRef.current.style.willChange = 'opacity, transform'; },
       onComplete: () => { sectionRef.current.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
+      scrollTrigger: { trigger: sectionRef.current, start: 'top bottom', once: true, invalidateOnRefresh: true }
     });
   }, { scope: sectionRef });
 

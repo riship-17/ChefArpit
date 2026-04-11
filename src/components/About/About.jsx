@@ -45,35 +45,35 @@ const About = () => {
       let { isDesktop } = context.conditions;
 
       gsap.from(leftRef.current, {
-        x: -60, opacity: 0, duration: 0.9, ease: EASE,
+        x: -30, opacity: 0, duration: 0.4, ease: EASE,
         onStart: () => { leftRef.current.style.willChange = 'opacity, transform'; },
         onComplete: () => { leftRef.current.style.willChange = 'auto'; },
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
+        scrollTrigger: { trigger: sectionRef.current, start: 'top bottom', once: true, invalidateOnRefresh: true }
       });
 
       gsap.from(rightRef.current, {
-        x: 60, opacity: 0, duration: 0.9, ease: EASE, delay: 0.15,
+        x: 30, opacity: 0, duration: 0.4, ease: EASE,
         onStart: () => { rightRef.current.style.willChange = 'opacity, transform'; },
         onComplete: () => { rightRef.current.style.willChange = 'auto'; },
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
+        scrollTrigger: { trigger: sectionRef.current, start: 'top bottom', once: true, invalidateOnRefresh: true }
       });
 
       const pillarEls = pillarsGridRef.current.querySelectorAll(`.${styles.pillar}`);
       
       if (isDesktop) {
         gsap.from(pillarEls, {
-          y: 30, opacity: 0, duration: 0.6, stagger: 0.12,
+          y: 15, opacity: 0, duration: 0.35, stagger: 0.06,
           onStart: () => { pillarEls.forEach(el => el.style.willChange = 'opacity, transform') },
           onComplete: () => { pillarEls.forEach(el => el.style.willChange = 'auto') },
-          scrollTrigger: { trigger: pillarsGridRef.current, start: 'top 90%', once: true, invalidateOnRefresh: true }
+          scrollTrigger: { trigger: pillarsGridRef.current, start: 'top bottom', once: true, invalidateOnRefresh: true }
         });
       } else {
         pillarEls.forEach((el) => {
           gsap.from(el, {
-            y: 30, opacity: 0, duration: 0.6, ease: EASE,
+            y: 15, opacity: 0, duration: 0.35, ease: EASE,
             onStart: () => { el.style.willChange = 'opacity, transform' },
             onComplete: () => { el.style.willChange = 'auto' },
-            scrollTrigger: { trigger: el, start: 'top 95%', once: true, invalidateOnRefresh: true }
+            scrollTrigger: { trigger: el, start: 'top bottom', once: true, invalidateOnRefresh: true }
           });
         });
       }

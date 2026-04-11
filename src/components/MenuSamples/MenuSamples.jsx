@@ -125,21 +125,21 @@ const MenuSamples = () => {
   useGSAP(() => {
     // Section header fade up:
     gsap.from([eyebrowRef.current, headingRef.current, subRef.current, disclaimerRef.current], {
-      y: 40, opacity: 0, stagger: 0.12, duration: 0.8, ease: EASE,
+      y: 20, opacity: 0, stagger: 0.06, duration: 0.4, ease: EASE,
       onStart: () => { [eyebrowRef.current, headingRef.current, subRef.current, disclaimerRef.current].forEach(el => { if(el) el.style.willChange = 'opacity, transform'; }) },
       onComplete: () => { [eyebrowRef.current, headingRef.current, subRef.current, disclaimerRef.current].forEach(el => { if(el) el.style.willChange = 'auto'; }) },
-      scrollTrigger: { trigger: sectionRef.current, start: "top 90%", once: true, invalidateOnRefresh: true }
+      scrollTrigger: { trigger: sectionRef.current, start: "top bottom", once: true, invalidateOnRefresh: true }
     });
 
     // Cards stagger up:
     cardRefs.current.forEach((card, i) => {
       if (!card) return;
       gsap.from(card, {
-        y: 60, opacity: 0, duration: 0.85, ease: EASE,
+        y: 25, opacity: 0, duration: 0.4, ease: EASE,
         onStart: () => { card.style.willChange = 'opacity, transform'; },
         onComplete: () => { card.style.willChange = 'auto'; },
         scrollTrigger: {
-          trigger: card, start: "top 90%",
+          trigger: card, start: "top bottom",
           once: true,
           toggleActions: "play none none none",
           invalidateOnRefresh: true
@@ -151,7 +151,7 @@ const MenuSamples = () => {
       if (stripe) {
         gsap.from(stripe, {
           scaleX: 0, duration: 0.6, ease: "power3.out", transformOrigin: "left center",
-          scrollTrigger: { trigger: card, start: "top 90%", once: true, invalidateOnRefresh: true }
+          scrollTrigger: { trigger: card, start: "top bottom", once: true, invalidateOnRefresh: true }
         });
       }
 
@@ -162,7 +162,7 @@ const MenuSamples = () => {
           scale: 0.85, opacity: 0, stagger: 0.06, duration: 0.4, ease: "back.out(1.4)",
           onStart: () => { tags.forEach(t => t.style.willChange = 'opacity, transform') },
           onComplete: () => { tags.forEach(t => t.style.willChange = 'auto') },
-          scrollTrigger: { trigger: card, start: "top 90%", once: true, invalidateOnRefresh: true }, delay: 0.3
+          scrollTrigger: { trigger: card, start: "top bottom", once: true, invalidateOnRefresh: true }, delay: 0.3
         });
       }
     });
@@ -170,10 +170,10 @@ const MenuSamples = () => {
     // Bottom CTA strip:
     if (ctaStripRef.current) {
       gsap.from(ctaStripRef.current, {
-        y: 30, opacity: 0, duration: 0.8, ease: EASE,
+        y: 15, opacity: 0, duration: 0.4, ease: EASE,
         onStart: () => { ctaStripRef.current.style.willChange = 'opacity, transform'; },
         onComplete: () => { ctaStripRef.current.style.willChange = 'auto'; },
-        scrollTrigger: { trigger: ctaStripRef.current, start: "top 90%", once: true, invalidateOnRefresh: true }
+        scrollTrigger: { trigger: ctaStripRef.current, start: "top bottom", once: true, invalidateOnRefresh: true }
       });
     }
 

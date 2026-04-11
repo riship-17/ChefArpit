@@ -108,34 +108,34 @@ const CaseStudies = () => {
   useGSAP(() => {
     // Section header — left/right split reveal:
     gsap.from(headerLeftRef.current, {
-      x: -50, opacity: 0, duration: 0.9, ease: EASE,
+      x: -25, opacity: 0, duration: 0.4, ease: EASE,
       onStart: () => { headerLeftRef.current.style.willChange = 'opacity, transform'; },
       onComplete: () => { headerLeftRef.current.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: sectionRef.current, start: "top 90%", once: true, invalidateOnRefresh: true }
+      scrollTrigger: { trigger: sectionRef.current, start: "top bottom", once: true, invalidateOnRefresh: true }
     });
     gsap.from(headerRightRef.current, {
-      x: 50, opacity: 0, duration: 0.9, delay: 0.1, ease: EASE,
+      x: 25, opacity: 0, duration: 0.4, ease: EASE,
       onStart: () => { headerRightRef.current.style.willChange = 'opacity, transform'; },
       onComplete: () => { headerRightRef.current.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: sectionRef.current, start: "top 90%", once: true, invalidateOnRefresh: true }
+      scrollTrigger: { trigger: sectionRef.current, start: "top bottom", once: true, invalidateOnRefresh: true }
     });
 
     // Each card — staggered reveal:
     cardRefs.current.forEach((card, i) => {
       gsap.from(card, {
-        y: 70, opacity: 0, duration: 1.0, ease: EASE,
+        y: 25, opacity: 0, duration: 0.4, ease: EASE,
         onStart: () => { card.style.willChange = 'opacity, transform'; },
         onComplete: () => { card.style.willChange = 'auto'; },
-        scrollTrigger: { trigger: card, start: "top 90%", once: true, toggleActions: "play none none none", invalidateOnRefresh: true }
+        scrollTrigger: { trigger: card, start: "top bottom", once: true, toggleActions: "play none none none", invalidateOnRefresh: true }
       });
 
       // Left panel slides from left:
       const leftPanel = card.querySelector(`.${styles.leftPanel}`);
       gsap.from(leftPanel, {
-        x: -50, opacity: 0, duration: 0.9, ease: EASE,
+        x: -25, opacity: 0, duration: 0.4, ease: EASE,
         onStart: () => { leftPanel.style.willChange = 'opacity, transform'; },
         onComplete: () => { leftPanel.style.willChange = 'auto'; },
-        scrollTrigger: { trigger: card, start: "top 90%", once: true, invalidateOnRefresh: true }
+        scrollTrigger: { trigger: card, start: "top bottom", once: true, invalidateOnRefresh: true }
       });
 
       // Right panel content fades up in sequence:
@@ -150,19 +150,19 @@ const CaseStudies = () => {
         
         if (isDesktop) {
           gsap.from(rightEls, {
-            y: 30, opacity: 0, stagger: 0.15, duration: 0.7, ease: EASE,
+            y: 15, opacity: 0, stagger: 0.06, duration: 0.35, ease: EASE,
             delay: 0.2,
             onStart: () => { rightEls.forEach(el => el.style.willChange = 'opacity, transform'); },
             onComplete: () => { rightEls.forEach(el => el.style.willChange = 'auto'); },
-            scrollTrigger: { trigger: card, start: "top 90%", once: true, invalidateOnRefresh: true }
+            scrollTrigger: { trigger: card, start: "top bottom", once: true, invalidateOnRefresh: true }
           });
         } else {
           rightEls.forEach((el) => {
             gsap.from(el, {
-              y: 30, opacity: 0, duration: 0.6, ease: EASE,
+              y: 15, opacity: 0, duration: 0.35, ease: EASE,
               onStart: () => { el.style.willChange = 'opacity, transform'; },
               onComplete: () => { el.style.willChange = 'auto'; },
-              scrollTrigger: { trigger: el, start: "top 95%", once: true, invalidateOnRefresh: true }
+              scrollTrigger: { trigger: el, start: "top bottom", once: true, invalidateOnRefresh: true }
             });
           });
         }
@@ -178,7 +178,7 @@ const CaseStudies = () => {
         if (!isNaN(num)) {
           gsap.fromTo({ val: 0 }, { val: 0 }, {
             val: num,
-            duration: 2.2,
+            duration: 1.2,
             ease: 'power2.out',
             onStart: () => { el.style.willChange = 'opacity, transform'; }, // Prep for numbers if needed
             onComplete: () => { el.style.willChange = 'auto'; },
@@ -186,7 +186,7 @@ const CaseStudies = () => {
               const v = this.targets()[0].val;
               el.textContent = (Number.isInteger(num) ? Math.round(v) : v.toFixed(1)) + suffix;
             },
-            scrollTrigger: { trigger: el, start: "top 90%", once: true, invalidateOnRefresh: true }
+            scrollTrigger: { trigger: el, start: "top bottom", once: true, invalidateOnRefresh: true }
           });
         }
       });
@@ -202,10 +202,10 @@ const CaseStudies = () => {
 
     // CTA block reveal:
     gsap.from(ctaBlockRef.current, {
-      y: 40, opacity: 0, duration: 0.9, ease: EASE,
+      y: 20, opacity: 0, duration: 0.4, ease: EASE,
       onStart: () => { ctaBlockRef.current.style.willChange = 'opacity, transform'; },
       onComplete: () => { ctaBlockRef.current.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: ctaBlockRef.current, start: "top 90%", once: true, invalidateOnRefresh: true }
+      scrollTrigger: { trigger: ctaBlockRef.current, start: "top bottom", once: true, invalidateOnRefresh: true }
     });
 
   }, { scope: sectionRef });

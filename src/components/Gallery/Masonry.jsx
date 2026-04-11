@@ -14,15 +14,15 @@ const Masonry = ({ items }) => {
     
     items.forEach(el => {
       gsap.from(el, {
-        y: 50,
+        y: 20,
         opacity: 0,
-        duration: 0.8,
+        duration: 0.35,
         ease: 'power3.out',
         onStart: () => { el.style.willChange = 'transform, opacity'; },
         onComplete: () => { el.style.willChange = 'auto'; },
         scrollTrigger: {
           trigger: el,
-          start: 'top 90%',
+          start: 'top bottom',
           once: true,
           invalidateOnRefresh: true,
           toggleActions: 'play none none none'

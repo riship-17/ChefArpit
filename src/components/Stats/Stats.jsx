@@ -24,7 +24,7 @@ const Stats = () => {
         { val: 0 },
         {
           val: value,
-          duration: 2,
+          duration: 1,
           ease: 'power2.out',
           onStart: () => { el.style.willChange = 'opacity, transform'; }, // Cleanup prep
           onComplete: () => { el.style.willChange = 'auto'; }, // Memory cleanup
@@ -33,7 +33,7 @@ const Stats = () => {
           },
           scrollTrigger: {
             trigger: el,
-            start: 'top 90%',
+            start: 'top bottom',
             once: true,
             invalidateOnRefresh: true
           }
