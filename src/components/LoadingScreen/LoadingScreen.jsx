@@ -36,7 +36,7 @@ const LoadingScreen = ({ onComplete }) => {
   if (!visible) return null;
 
   return (
-    <div className={styles.container} ref={containerRef}>
+    <div className={styles.container} ref={containerRef} role="status" aria-live="polite" aria-busy="true">
       <div className={styles.content}>
         <span className={styles.label}>CHEF CHOICE CONSULTANCY</span>
         <h1 className={styles.title}>CHEF ARPIT MACWAN</h1>

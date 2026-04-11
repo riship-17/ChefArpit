@@ -16,6 +16,19 @@
   align-items: start;
 }
 
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  .left {
+    max-width: 600px;
+  }
+  .watermark {
+    display: none;
+  }
+}
+
 /* ——— Left Column ——— */
 .left {}
 
@@ -210,6 +223,13 @@
 .field select {
   cursor: pointer;
   color: rgba(58, 42, 40, 0.5);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C08552' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 12px;
+  padding-right: 28px;
 }
 
 .field select:valid:not([value=""]) {
@@ -219,6 +239,26 @@
 .field textarea {
   resize: vertical;
   min-height: 80px;
+  max-height: 200px;
+}
+
+.errorText {
+  display: block;
+  font-family: var(--font-utility, sans-serif);
+  font-size: 11px;
+  color: #D32F2F;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* Chrome autofill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #FFF8F0 inset;
+  -webkit-text-fill-color: #3a2a28;
+  caret-color: #3a2a28;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 /* Submit Button */
@@ -236,6 +276,8 @@
   cursor: pointer;
   transition: background 0.3s;
   border-radius: 2px;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .submitBtn:hover {
@@ -267,32 +309,30 @@
 
 /* ——— Tablet ——— */
 @media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-
-  .watermark {
-    display: none;
-  }
+  .container { padding: 0 32px; }
+  .watermark { display: none; }
 }
 
 /* ——— Mobile ——— */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .contact {
     padding: var(--section-pad-mobile);
   }
 
   .container {
-    padding: 0 24px;
+    padding: 0 16px;
   }
 
   .title {
-    font-size: 32px;
+    font-size: clamp(28px, 7vw, 44px);
+  }
+
+  .left {
+    max-width: 100%;
   }
 
   .form {
-    padding: 36px 24px;
+    padding: 32px 24px;
   }
 
   .watermark span {

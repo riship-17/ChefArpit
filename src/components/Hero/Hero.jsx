@@ -13,7 +13,7 @@ const statsData = [
   { target: 100, label: 'Client Commitment', suffix: '%' },
 ];
 
-const Hero = () => {
+const Hero = ({ isLoading }) => {
   const containerRef = useRef(null);
   const heroTagRef = useRef(null);
   const heroH1Ref = useRef(null);
@@ -25,6 +25,8 @@ const Hero = () => {
   const statNumRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
   useGSAP(() => {
+    if (isLoading) return;
+    
     const tl = gsap.timeline({ delay: 1.5 });
     const heroH1Lines = heroH1Ref.current.querySelectorAll('span');
 
@@ -52,7 +54,7 @@ const Hero = () => {
         });
       });
     }, '-=0.5');
-  }, { scope: containerRef });
+  }, { scope: containerRef, dependencies: [isLoading] });
 
   return (
     <section className={styles.hero} ref={containerRef}>
@@ -64,7 +66,7 @@ const Hero = () => {
             CULINARY CONSULTANT · AHMEDABAD, GUJARAT
           </span>
 
-          <h1 className={styles.heroH1} ref={heroH1Ref}>
+          <h1 id="home-heading" className={styles.heroH1} ref={heroH1Ref}>
             <span>WHERE CULINARY</span>
             <span className={styles.accentLine}>VISION MEETS</span>
             <span className={styles.heavyLine}>EXCELLENCE</span>
@@ -77,8 +79,8 @@ const Hero = () => {
           </p>
 
           <div className={styles.ctaGroup} ref={heroBtnsRef}>
-            <button className={styles.primaryBtn}>EXPLORE OUR SERVICES</button>
-            <button className={styles.secondaryBtn}>BOOK A CONSULTATION</button>
+            <button type="button" className={styles.primaryBtn}>EXPLORE OUR SERVICES</button>
+            <button type="button" className={styles.secondaryBtn}>BOOK A CONSULTATION</button>
           </div>
 
           <div className={styles.statsBar}>

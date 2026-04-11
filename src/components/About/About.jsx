@@ -38,18 +38,24 @@ const About = () => {
   useGSAP(() => {
     gsap.from(leftRef.current, {
       x: -60, opacity: 0, duration: 0.9, ease: EASE,
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' }
+      onStart: () => { leftRef.current.style.willChange = 'opacity, transform'; },
+      onComplete: () => { leftRef.current.style.willChange = 'auto'; },
+      scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', invalidateOnRefresh: true }
     });
 
     gsap.from(rightRef.current, {
       x: 60, opacity: 0, duration: 0.9, ease: EASE, delay: 0.15,
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' }
+      onStart: () => { rightRef.current.style.willChange = 'opacity, transform'; },
+      onComplete: () => { rightRef.current.style.willChange = 'auto'; },
+      scrollTrigger: { trigger: sectionRef.current, start: 'top 70%', invalidateOnRefresh: true }
     });
 
     const pillarEls = pillarsGridRef.current.querySelectorAll(`.${styles.pillar}`);
     gsap.from(pillarEls, {
       y: 30, opacity: 0, duration: 0.6, stagger: 0.12,
-      scrollTrigger: { trigger: pillarsGridRef.current, start: 'top 80%' }
+      onStart: () => { pillarEls.forEach(el => el.style.willChange = 'opacity, transform') },
+      onComplete: () => { pillarEls.forEach(el => el.style.willChange = 'auto') },
+      scrollTrigger: { trigger: pillarsGridRef.current, start: 'top 80%', invalidateOnRefresh: true }
     });
   }, { scope: sectionRef });
 
@@ -86,7 +92,7 @@ const About = () => {
               <div className={styles.sectionLabelLine}></div>
               <span className={styles.sectionLabel}>ABOUT THE CHEF</span>
             </div>
-            <h2 className={styles.title}>CHEF ARPIT MACWAN</h2>
+            <h2 id="about-heading" className={styles.title}>CHEF ARPIT MACWAN</h2>
             <div className={styles.accentLine}></div>
 
             <div className={styles.bio}>

@@ -15,24 +15,37 @@ const Marquee = () => {
   const tweenRef = useRef(null);
 
   useGSAP(() => {
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (prefersReducedMotion) {
+      gsap.set(innerRef.current, { x: '0%' });
+      return;
+    }
+
+    const isMobile = window.innerWidth < 768;
+    
     tweenRef.current = gsap.to(innerRef.current, {
       x: '-50%',
-      duration: 25,
+      duration: isMobile ? 40 : 25,
       ease: 'none',
       repeat: -1
     });
 
-    const container = containerRef.current;
-    const handleEnter = () => tweenRef.current?.pause();
-    const handleLeave = () => tweenRef.current?.resume();
+    if (!isMobile) {
+      const container = containerRef.current;
+      const handleEnter = () => gsap.globalTimeline.timeScale(0);
+      const handleLeave = () => gsap.globalTimeline.timeScale(1);
 
-    container.addEventListener('mouseenter', handleEnter);
-    container.addEventListener('mouseleave', handleLeave);
+      container.addEventListener('mouseenter', handleEnter);
+      container.addEventListener('mouseleave', handleLeave);
 
-    return () => {
-      container.removeEventListener('mouseenter', handleEnter);
-      container.removeEventListener('mouseleave', handleLeave);
-    };
+      return () => {
+        container.removeEventListener('mouseenter', handleEnter);
+        container.removeEventListener('mouseleave', handleLeave);
+      };
+    }
   }, { scope: containerRef });
 
   const renderTags = () =>

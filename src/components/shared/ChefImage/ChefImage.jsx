@@ -25,6 +25,9 @@ const ChefImage = ({ src, alt, aspectRatio = "3/4", label = "AM", className }) =
           className={styles.image}
           style={{ opacity: 0 }}
           onLoad={() => setIsLoaded(true)}
+          fetchPriority="high"
+          loading="eager"
+          decoding="sync"
         />
       ) : (
         <div className={styles.placeholder}>

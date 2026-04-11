@@ -1,60 +1,150 @@
-import React, { useState } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import Navbar from './components/Navbar/Navbar';
+
 import LoadingScreen from './components/LoadingScreen/LoadingScreen';
+import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
+import Marquee from './components/Marquee/Marquee';
 import Services from './components/Services/Services';
 import Stats from './components/Stats/Stats';
-import Marquee from './components/Marquee/Marquee';
 import Process from './components/Process/Process';
 import Testimonials from './components/Testimonials/Testimonials';
-import Gallery from './components/Gallery/Gallery';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
-import CaseStudies from './components/CaseStudies/CaseStudies';
-import MenuSamples from './components/MenuSamples/MenuSamples';
 import './styles/globals.css';
 
-gsap.registerPlugin(ScrollTrigger);
+const Gallery = lazy(() => import('./components/Gallery/Gallery'));
+const CaseStudies = lazy(() => import('./components/CaseStudies/CaseStudies'));
+const MenuSamples = lazy(() => import('./components/MenuSamples/MenuSamples'));
+
+// ─── Register GSAP plugins ─────────────────────
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+// ─── Reduced motion global setup ───────────────
+const prefersReducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)'
+).matches;
+
+if (prefersReducedMotion) {
+  gsap.defaults({ duration: 0, ease: 'none' });
+  ScrollTrigger.config({ limitCallbacks: true });
+}
+
+// ─── GSAP global defaults ──────────────────────
+gsap.defaults({
+  ease: 'power3.out',
+  duration: 0.8
+});
 
 function App() {
   const [loading, setLoading] = useState(true);
 
-  return (
-    <div className="app">
-      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+  // ─── Kill all ScrollTriggers on unmount ──────
+  useEffect(() => {
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+      ScrollTrigger.clearScrollMemory();
+      window.scrollTo(0, 0);
+    };
+  }, []);
 
-      {!loading && (
-        <>
-          <Navbar />
-          <main>
-            <section id="home">
-              <Hero />
-            </section>
-            <section id="about">
-              <About />
-            </section>
-            <Marquee />
-            <section id="services">
-              <Services />
-            </section>
-            <CaseStudies />
-            <MenuSamples />
-            <Stats />
-            <Process />
-            <Testimonials />
-            <Gallery />
-            <section id="contact">
-              <Contact />
-            </section>
-          </main>
-          <Footer />
-        </>
-      )}
+  // ─── Refresh ScrollTrigger on resize ─────────
+  useEffect(() => {
+    let resizeTimer;
+    const handleResize = () => {
+      clearTimeout(resizeTimer);
+      // Debounce — wait 150ms after resize stops
+      resizeTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 150);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimer);
+    };
+  }, []);
+
+  // ─── Refresh after fonts load ─────────────────
+  useEffect(() => {
+    document.fonts.ready.then(() => {
+      ScrollTrigger.refresh();
+    });
+  }, []);
+
+  const suspenseFallback = (
+    <div style={{
+      height: '400px',
+      background: '#FFF8F0',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: "'Roboto Condensed', sans-serif",
+      fontSize: '13px',
+      letterSpacing: '3px',
+      color: 'rgba(192,133,82,0.5)',
+      textTransform: 'uppercase'
+    }}>
+      Loading...
     </div>
+  );
+
+  return (
+    <>
+      {loading && (
+        <LoadingScreen onComplete={() => setLoading(false)} />
+      )}
+
+      <Navbar />
+
+      <main id="main-content">
+        <section id="home" aria-labelledby="home-heading">
+          <Hero isLoading={loading} />
+        </section>
+
+        <section id="about" aria-labelledby="about-heading">
+          <About />
+        </section>
+
+        <Marquee />
+
+        <section id="services" aria-labelledby="services-heading">
+          <Services />
+        </section>
+
+        <section id="case-studies" aria-labelledby="case-studies-heading">
+          <Suspense fallback={suspenseFallback}>
+            <CaseStudies />
+          </Suspense>
+        </section>
+
+        <section id="menu-samples" aria-labelledby="menu-heading">
+          <Suspense fallback={suspenseFallback}>
+            <MenuSamples />
+          </Suspense>
+        </section>
+
+        <Stats />
+
+        <Process />
+
+        <Testimonials />
+
+        <Suspense fallback={suspenseFallback}>
+            <Gallery />
+        </Suspense>
+
+        <section id="contact" aria-labelledby="contact-heading">
+          <Contact />
+        </section>
+      </main>
+
+      <Footer />
+    </>
   );
 }
 

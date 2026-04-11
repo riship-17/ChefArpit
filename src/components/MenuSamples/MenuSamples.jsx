@@ -99,12 +99,36 @@ const MenuSamples = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', business: '' });
+  const [isMobileScreen, setIsMobileScreen] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobileScreen(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const lockScroll = () => {
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+  };
+
+  const unlockScroll = () => {
+    const scrollY = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+  };
 
   useGSAP(() => {
     // Section header fade up:
     gsap.from([eyebrowRef.current, headingRef.current, subRef.current, disclaimerRef.current], {
       y: 40, opacity: 0, stagger: 0.12, duration: 0.8, ease: EASE,
-      scrollTrigger: { trigger: sectionRef.current, start: "top 75%" }
+      onStart: () => { [eyebrowRef.current, headingRef.current, subRef.current, disclaimerRef.current].forEach(el => { if(el) el.style.willChange = 'opacity, transform'; }) },
+      onComplete: () => { [eyebrowRef.current, headingRef.current, subRef.current, disclaimerRef.current].forEach(el => { if(el) el.style.willChange = 'auto'; }) },
+      scrollTrigger: { trigger: sectionRef.current, start: "top 75%", invalidateOnRefresh: true }
     });
 
     // Cards stagger up:
@@ -112,18 +136,21 @@ const MenuSamples = () => {
       if (!card) return;
       gsap.from(card, {
         y: 60, opacity: 0, duration: 0.85, ease: EASE,
+        onStart: () => { card.style.willChange = 'opacity, transform'; },
+        onComplete: () => { card.style.willChange = 'auto'; },
         scrollTrigger: {
           trigger: card, start: "top 82%",
-          toggleActions: "play none none none"
+          toggleActions: "play none none none",
+          invalidateOnRefresh: true
         }
       });
 
-      // Binding stripe grows down:
+      // Binding stripe config:
       const stripe = card.querySelector(`.${styles.bindingStripe}`);
       if (stripe) {
         gsap.from(stripe, {
-          scaleY: 0, duration: 0.6, ease: "power3.out", transformOrigin: "top",
-          scrollTrigger: { trigger: card, start: "top 82%" }
+          scaleX: 0, duration: 0.6, ease: "power3.out", transformOrigin: "left center",
+          scrollTrigger: { trigger: card, start: "top 82%", invalidateOnRefresh: true }
         });
       }
 
@@ -132,7 +159,9 @@ const MenuSamples = () => {
       if (tags.length) {
         gsap.from(tags, {
           scale: 0.85, opacity: 0, stagger: 0.06, duration: 0.4, ease: "back.out(1.4)",
-          scrollTrigger: { trigger: card, start: "top 80%" }, delay: 0.3
+          onStart: () => { tags.forEach(t => t.style.willChange = 'opacity, transform') },
+          onComplete: () => { tags.forEach(t => t.style.willChange = 'auto') },
+          scrollTrigger: { trigger: card, start: "top 80%", invalidateOnRefresh: true }, delay: 0.3
         });
       }
     });
@@ -141,7 +170,9 @@ const MenuSamples = () => {
     if (ctaStripRef.current) {
       gsap.from(ctaStripRef.current, {
         y: 30, opacity: 0, duration: 0.8, ease: EASE,
-        scrollTrigger: { trigger: ctaStripRef.current, start: "top 85%" }
+        onStart: () => { ctaStripRef.current.style.willChange = 'opacity, transform'; },
+        onComplete: () => { ctaStripRef.current.style.willChange = 'auto'; },
+        scrollTrigger: { trigger: ctaStripRef.current, start: "top 85%", invalidateOnRefresh: true }
       });
     }
 
@@ -151,6 +182,7 @@ const MenuSamples = () => {
     setActiveMenu(sample);
     setModalOpen(true);
     setSubmitted(false);
+    lockScroll();
     
     // Defer animation slightly to allow DOM to render modal
     setTimeout(() => {
@@ -177,6 +209,7 @@ const MenuSamples = () => {
         onComplete: () => {
           setModalOpen(false);
           setActiveMenu(null);
+          unlockScroll();
         }
       });
     } else {
@@ -185,6 +218,7 @@ const MenuSamples = () => {
         onComplete: () => {
           setModalOpen(false);
           setActiveMenu(null);
+          unlockScroll();
         }
       });
     }
@@ -193,6 +227,23 @@ const MenuSamples = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+
+    const triggerDownload = (path, title) => {
+      const link = document.createElement('a');
+      link.href = path;
+      link.setAttribute('download', title + '.pdf');
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      setTimeout(() => {
+        if (link.parentNode) document.body.removeChild(link);
+      }, 100);
+    };
+
+    if (activeMenu?.filePath) {
+      triggerDownload(activeMenu.filePath, activeMenu.title);
+    }
+
     setTimeout(() => {
       gsap.fromTo(successRef.current, 
         { scale: 0.9, opacity: 0 }, 
@@ -216,7 +267,7 @@ const MenuSamples = () => {
             <span className={styles.label}>SAMPLE WORK</span>
             <span className={styles.line}></span>
           </div>
-          <h2 className={styles.title} ref={headingRef}>
+          <h2 id="menu-heading" className={styles.title} ref={headingRef}>
             EXPLORE OUR<br/><span>MENU</span> CREATIONS
           </h2>
           <p className={styles.subHeading} ref={subRef}>
@@ -264,7 +315,7 @@ const MenuSamples = () => {
                 </div>
 
                 <div className={styles.row4}>
-                  {sample.tags.map((tag, tIdx) => (
+                  {sample.tags.slice(0, isMobileScreen ? 3 : 4).map((tag, tIdx) => (
                     <span key={tIdx} className={styles.tag}>{tag}</span>
                   ))}
                 </div>
@@ -281,11 +332,11 @@ const MenuSamples = () => {
                       <span className={styles.specLabel}>FORMAT</span>
                       <span className={styles.specValue}>{sample.specs.format}</span>
                     </div>
-                    <div className={styles.specItem}>
+                    <div className={`${styles.specItem} ${styles.specCuisine}`}>
                       <span className={styles.specLabel}>CUISINE</span>
                       <span className={styles.specValue}>{sample.specs.cuisine}</span>
                     </div>
-                    <div className={styles.specItem}></div>
+                    <div className={`${styles.specItem} ${styles.specEmpty}`}></div>
                     <div className={styles.specItem}>
                       <span className={styles.specLabel}>PAGES</span>
                       <span className={styles.specValue}>{sample.specs.pages}</span>
@@ -298,7 +349,7 @@ const MenuSamples = () => {
 
                   <div className={styles.actionRight}>
                     {sample.available ? (
-                      <button className={styles.downloadBtn} onClick={() => handleDownloadClick(sample)}>
+                      <button type="button" className={styles.downloadBtn} onClick={() => handleDownloadClick(sample)}>
                         <div className={styles.downloadIcon}>
                           <svg viewBox="0 0 24 24">
                             <path d="M12 5V19M12 19L5 12M12 19L19 12" strokeLinecap="round" strokeLinejoin="round"/>
@@ -355,7 +406,7 @@ const MenuSamples = () => {
           <div className={styles.modalCard} ref={modalCardRef}>
             <div className={styles.modalTopBand} style={{ backgroundColor: activeMenu?.bindingColor }}></div>
             <div className={styles.modalContent}>
-              <button className={styles.closeBtn} onClick={closeModal}>×</button>
+              <button type="button" className={styles.closeBtn} onClick={closeModal}>×</button>
               
               {!submitted ? (
                 <>
@@ -401,7 +452,7 @@ const MenuSamples = () => {
                   <p className={styles.successDesc}>
                     Check your inbox for the {activeMenu?.title}. Usually arrives within 2 minutes.
                   </p>
-                  <button className={styles.closeTextBtn} onClick={closeModal}>
+                  <button type="button" className={styles.closeTextBtn} onClick={closeModal}>
                     Close this window
                   </button>
                 </div>

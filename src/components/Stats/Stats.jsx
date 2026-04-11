@@ -21,17 +21,21 @@ const Stats = () => {
 
       gsap.fromTo(
         { val: 0 },
-        { val: value },
+        { val: 0 },
         {
+          val: value,
           duration: 2,
           ease: 'power2.out',
+          onStart: () => { el.style.willChange = 'opacity, transform'; }, // Cleanup prep
+          onComplete: () => { el.style.willChange = 'auto'; }, // Memory cleanup
           onUpdate() {
             el.textContent = Math.round(this.targets()[0].val) + suffix;
           },
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 70%',
-            once: true
+            once: true,
+            invalidateOnRefresh: true
           }
         }
       );

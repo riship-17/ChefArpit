@@ -2,14 +2,26 @@
   background-color: var(--dark);
   color: var(--cream);
   padding: var(--section-pad-desktop);
-  overflow: visible;
   position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 48px;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
 }
 
 /* --- Section Header --- */
@@ -71,8 +83,11 @@
 
 @media (max-width: 768px) {
   .gallerySection { padding: var(--section-pad-mobile); }
-  .container { padding: 0 24px; }
   .title { font-size: 42px; }
   .subtitle { font-size: 14px; }
   .header { margin-bottom: 40px; }
+}
+
+@media (max-width: 480px) {
+  .header { margin-bottom: 32px; }
 }

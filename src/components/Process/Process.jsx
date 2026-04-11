@@ -38,26 +38,38 @@ const Process = () => {
   const progressLineRef = useRef(null);
 
   useGSAP(() => {
-    // Timeline progress line animation (scrub)
-    gsap.fromTo(
-      progressLineRef.current,
-      { scaleX: 0 },
-      {
-        scaleX: 1,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 60%',
-          end: 'bottom 70%',
-          scrub: 1
+    let mm = gsap.matchMedia();
+
+    mm.add({
+      isDesktop: "(min-width: 901px)",
+      isMobile: "(max-width: 900px)"
+    }, (context) => {
+      let { isDesktop, isMobile } = context.conditions;
+
+      gsap.fromTo(
+        progressLineRef.current,
+        { scaleX: isDesktop ? 0 : 1, scaleY: isMobile ? 0 : 1 },
+        {
+          scaleX: 1,
+          scaleY: 1,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: isDesktop ? 'top 60%' : 'top 60%',
+            end: isDesktop ? 'bottom 70%' : 'bottom 80%',
+            scrub: 1,
+            invalidateOnRefresh: true
+          }
         }
-      }
-    );
+      );
+    });
 
     // Steps stagger entry
     const stepEls = sectionRef.current.querySelectorAll(`.${styles.step}`);
     gsap.from(stepEls, {
       y: 40, opacity: 0, stagger: 0.15, duration: 0.7, ease: EASE,
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 65%' }
+      onStart: () => { stepEls.forEach(el => el.style.willChange = 'opacity, transform') },
+      onComplete: () => { stepEls.forEach(el => el.style.willChange = 'auto') },
+      scrollTrigger: { trigger: sectionRef.current, start: 'top 65%', invalidateOnRefresh: true }
     });
   }, { scope: sectionRef });
 

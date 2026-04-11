@@ -1,14 +1,49 @@
-*,
-*::before,
-*::after {
+:root {
+  /* Breakpoints as CSS custom properties
+     (reference only — use in JS if needed) */
+  --bp-mobile:   480px;
+  --bp-phablet:  640px;
+  --bp-tablet:   768px;
+  --bp-laptop:   1024px;
+  --bp-desktop:  1280px;
+  --bp-wide:     1536px;
+}
+
+/* ─── MEDIA QUERY REFERENCE CARD ─────────────────
+
+  Mobile portrait:   @media (max-width: 480px)
+  Mobile landscape:  @media (max-width: 640px)
+  Tablet portrait:   @media (max-width: 768px)
+  Tablet landscape:  @media (max-width: 1024px)
+  Desktop:           @media (min-width: 1025px)
+  Wide screen:       @media (min-width: 1536px)
+  
+  MOBILE FIRST approach — write base styles for
+  mobile, then override upward with min-width.
+  
+  Exception: this project was desktop-first in
+  design — convert using max-width breakpoints
+  to avoid rewriting all existing styles.
+
+──────────────────────────────────────────────── */
+
+/* ─── UNIVERSAL RESET ─────────────────────────── */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Prevent horizontal scroll globally */
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
 :root {
   /* ─── FONTS ─── */
-  --font-display:    'Bebas Neue', sans-serif;
+  --font-display:    'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
   --font-body:       'Montserrat', sans-serif;
   --font-condensed:  'Roboto Condensed', sans-serif;
 
@@ -71,23 +106,67 @@ h4 {
   line-height: 1.15;
 }
 
+.bebasText,
+[class*="bebas"],
+.statNumber,
+.metricNumber,
+.caseHeadline,
+.menuTitle,
+.navLogo,
+.loadingName,
+.ctaBtn,
+.sectionHeading {
+  font-family: var(--font-display);
+}
 
+/* ─── FLUID TYPOGRAPHY SCALE ─────────────────── */
+:root {
+  --text-hero:      clamp(36px, 8vw, 96px);
+  --text-h2:        clamp(28px, 5vw, 64px);
+  --text-h3:        clamp(20px, 3.5vw, 36px);
+  --text-body-lg:   clamp(15px, 2vw, 18px);
+  --text-body:      clamp(14px, 1.8vw, 16px);
+  --text-small:     clamp(11px, 1.5vw, 13px);
+  --text-label:     clamp(10px, 1.2vw, 12px);
+
+  /* Bebas Neue specific (it needs more tracking) */
+  --track-hero:     clamp(2px, 0.5vw, 8px);
+  --track-heading:  clamp(1px, 0.3vw, 4px);
+  --track-label:    clamp(3px, 0.4vw, 6px);
+}
+
+/* ─── FLUID SECTION PADDING ──────────────────── */
+:root {
+  --section-pad: clamp(60px, 10vw, 140px);
+}
+
+section {
+  padding: var(--section-pad) 0;
+  scroll-margin-top: 80px; /* navbar height */
+}
+
+@media (max-width: 768px) {
+  section { scroll-margin-top: 64px; }
+}
+
+/* ─── SAFE CONTAINER SYSTEM ───────────────────── */
 .container {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 48px;
 }
 
 @media (max-width: 1024px) {
-  .container {
-    padding: 0 32px;
-  }
+  .container { padding: 0 32px; }
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-  }
+  .container { padding: 0 20px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
 }
 
 /* Section divider */
@@ -109,4 +188,119 @@ h4 {
 ::-webkit-scrollbar-thumb {
   background: var(--gold);
   border-radius: 3px;
+}
+
+/* ─────────────────────────────────────────────
+   KEYBOARD FOCUS INDICATOR
+───────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid #C08552;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ─────────────────────────────────────────────
+   PREFERS REDUCED MOTION
+───────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   CHROME AUTOFILL GLOBAL FIX
+───────────────────────────────────────────────── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #FFF8F0 inset;
+  -webkit-text-fill-color: #3a2a28;
+  caret-color: #3a2a28;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ─────────────────────────────────────────────
+   IMAGE ASPECT RATIO GLOBAL FIX
+───────────────────────────────────────────────── */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─────────────────────────────────────────────
+   SKIP LINK
+───────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: #C08552;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  padding: 12px 24px;
+  z-index: 10000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ─────────────────────────────────────────────
+   SCREEN READER ONLY
+───────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─────────────────────────────────────────────
+   PRINT STYLES
+───────────────────────────────────────────────── */
+@media print {
+  .navbar,
+  .loadingScreen,
+  .marquee,
+  .mobileMenu,
+  button[aria-controls="mobile-nav-menu"] {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: gray;
+  }
 }

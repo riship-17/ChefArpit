@@ -691,7 +691,7 @@
   }
   .bindingDeco { display: none; }
   .cardBody { padding: 28px 20px; }
-  .specsGrid { grid-template-columns: repeat(2, auto); }
+  .specsGrid { grid-template-columns: repeat(3, 1fr); }
   .stripContainer { padding: 0 24px; }
   .stripWrapper { padding: 36px 24px; }
   .stripBgNumber { font-size: 140px; right: 10px; }
@@ -703,4 +703,9 @@
     max-width: 100%;
     border-radius: 16px 16px 0 0;
   }
+}
+
+@media (max-width: 480px) {
+  .specsGrid { grid-template-columns: repeat(2, 1fr); }
+  .specCuisine { display: none; }
 }

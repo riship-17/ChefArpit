@@ -33,7 +33,9 @@ const Testimonials = () => {
   useGSAP(() => {
     gsap.from(sectionRef.current, {
       opacity: 0, y: 30, duration: 1,
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' }
+      onStart: () => { sectionRef.current.style.willChange = 'opacity, transform'; },
+      onComplete: () => { sectionRef.current.style.willChange = 'auto'; },
+      scrollTrigger: { trigger: sectionRef.current, start: 'top 80%', invalidateOnRefresh: true }
     });
   }, { scope: sectionRef });
 
@@ -88,14 +90,19 @@ const Testimonials = () => {
             </span>
           </div>
 
-          <div className={styles.dots}>
+          <div className={styles.dots} role="tablist" aria-label="Testimonials">
             {testimonials.map((_, i) => (
               <button
+                type="button"
                 key={i}
-                className={`${styles.dot} ${i === active ? styles.active : ''}`}
+                role="tab"
+                aria-selected={i === active}
+                className={`${styles.dotWrapper} ${i === active ? styles.active : ''}`}
                 onClick={() => goTo(i)}
                 aria-label={`Go to testimonial ${i + 1}`}
-              />
+              >
+                <span className={styles.dot} />
+              </button>
             ))}
           </div>
         </div>

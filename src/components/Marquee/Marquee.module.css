@@ -9,7 +9,8 @@
 }
 
 .inner {
-  display: inline-flex;
+  display: flex;
+  width: max-content;
   align-items: center;
   white-space: nowrap;
 }
@@ -32,4 +33,19 @@
   color: var(--gold);
   margin: 0 16px;
   font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .text {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner {
+    animation: none;
+    transform: none !important;
+    justify-content: center;
+  }
 }

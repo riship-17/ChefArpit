@@ -13,11 +13,11 @@ const Gallery = () => {
   }));
 
   return (
-    <div id="gallery" className={styles.gallerySection}>
+    <section id="gallery" aria-labelledby="gallery-heading" className={styles.gallerySection}>
       <div className={styles.container}>
         <header className={styles.header}>
           <SectionLabel light>VISUAL JOURNEY</SectionLabel>
-          <h2 className={styles.title}>CURATED CULINARY <span>GALLERY</span></h2>
+          <h2 id="gallery-heading" className={styles.title}>CURATED CULINARY <span>GALLERY</span></h2>
           <p className={styles.subtitle}>
             A glimpse into the artistry and precision that defines our consulting projects. 
             From high-end fine dining concepts to optimized kitchen operations in action.
@@ -38,7 +38,7 @@ const Gallery = () => {
       <div className={styles.galleryFooter}>
         <span className={styles.indicatorText}>END OF GALLERY</span>
       </div>
-    </div>
+    </section>
   );
 };
 

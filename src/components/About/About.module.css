@@ -12,7 +12,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 45% 55%;
   gap: 80px;
   align-items: stretch;
 }
@@ -51,6 +51,8 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 2px;
+  overflow: hidden;
+  word-break: break-word;
 }
 
 .quoteTop { position: relative; }
@@ -69,7 +71,7 @@
   font-family: var(--font-body);
   font-weight: 400;
   font-style: italic;
-  font-size: 22px;
+  font-size: clamp(16px, 2.2vw, 22px);
   line-height: 1.7;
   color: var(--cream);
 }
@@ -111,9 +113,11 @@
   font-size: 12px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 8px 12px;
+  padding: 5px 10px;
   border-radius: 20px;
   background: rgba(192, 133, 82, 0.06);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* ——— Right Column: Bio + Pillars ——— */
@@ -203,7 +207,10 @@
 /* ——— Tablet ——— */
 @media (max-width: 1024px) {
   .container { padding: 0 32px; }
-  .grid { gap: 48px; }
+  .grid { 
+    gap: 48px;
+    grid-template-columns: 40% 60%;
+  }
   .title { font-size: 36px; }
   .quoteCard { padding: 44px 36px; }
 }
@@ -228,7 +235,13 @@
   .title { font-size: 32px; }
 
   .pillarsGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pillarsGrid {
+    grid-template-columns: 1fr;
   }
 }

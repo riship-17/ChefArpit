@@ -97,13 +97,33 @@
   .title { font-size: 32px; }
 
   .grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px 0;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
   }
 
   .statItem:not(:last-child)::after {
     display: none;
   }
 
-  .number { font-size: 64px; }
+  .statItem:nth-child(1),
+  .statItem:nth-child(2) {
+    border-bottom: 1px solid rgba(192,133,82,0.15);
+  }
+
+  .statItem:nth-child(1),
+  .statItem:nth-child(3) {
+    border-right: 1px solid rgba(192,133,82,0.15);
+  }
+
+  .statItem { 
+    padding: 32px 20px; 
+  }
+
+  .number { 
+    font-size: clamp(56px, 14vw, 96px); 
+  }
+  .label { 
+    font-size: 11px; 
+    letter-spacing: 1.5px; 
+  }
 }

@@ -163,19 +163,20 @@
   .stepDesc { max-width: 160px; font-size: 12px; }
 }
 
-/* ——— Mobile: Vertical Layout ——— */
-@media (max-width: 768px) {
+/* ——— Tablet & Mobile: Vertical Layout ——— */
+@media (max-width: 900px) {
   .process { padding: var(--section-pad-mobile); }
   .container { padding: 0 24px; }
   .header { margin-bottom: 48px; }
   .title { font-size: 32px; }
 
   .baseLine, .progressLine {
-    top: 0;
-    left: 32px;
+    top: 64px;
+    left: 31px;
     right: auto;
     width: 1px;
-    height: 100%;
+    height: auto;
+    bottom: 0;
   }
 
   .progressLine {
@@ -185,24 +186,38 @@
 
   .stepsRow {
     flex-direction: column;
-    gap: 48px;
+    align-items: flex-start;
+    gap: 0;
+    position: relative;
   }
 
   .step {
     flex-direction: row;
-    text-align: left;
     align-items: flex-start;
     gap: 24px;
+    padding-bottom: 40px;
+    max-width: 100%;
   }
 
   .circle {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     flex-shrink: 0;
   }
 
-  .circleNumber { font-size: 16px; }
+  .circleNumber { font-size: 36px; }
 
-  .stepContent { padding-top: 0; }
-  .stepDesc { max-width: none; }
+  .stepContent { 
+    text-align: left; 
+    max-width: none; 
+    padding-top: 12px; 
+  }
+}
+
+@media (max-width: 768px) {
+  .process { padding: var(--section-pad-mobile); }
+  .title { font-size: 32px; }
+  .circle { width: 48px; height: 48px; }
+  .circleNumber { font-size: 16px; }
+  .baseLine, .progressLine { left: 23px; top: 48px; }
 }

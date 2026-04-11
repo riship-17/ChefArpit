@@ -156,12 +156,16 @@ const Services = () => {
     const cards = gridRef.current.querySelectorAll(`.${styles.card}`);
     gsap.from(cards, {
       y: 50, opacity: 0, duration: 0.7, stagger: 0.1, ease: EASE,
-      scrollTrigger: { trigger: gridRef.current, start: 'top 75%' }
+      onStart: () => { cards.forEach(card => card.style.willChange = 'opacity, transform') },
+      onComplete: () => { cards.forEach(card => card.style.willChange = 'auto') },
+      scrollTrigger: { trigger: gridRef.current, start: 'top 75%', invalidateOnRefresh: true }
     });
 
     gsap.from(premiumRef.current, {
       y: 40, opacity: 0, duration: 0.8, ease: EASE,
-      scrollTrigger: { trigger: premiumRef.current, start: 'top 80%' }
+      onStart: () => { premiumRef.current.style.willChange = 'opacity, transform'; },
+      onComplete: () => { premiumRef.current.style.willChange = 'auto'; },
+      scrollTrigger: { trigger: premiumRef.current, start: 'top 80%', invalidateOnRefresh: true }
     });
   }, { scope: sectionRef });
 
@@ -193,7 +197,7 @@ const Services = () => {
         {/* Section Header */}
         <div className={styles.header}>
           <span className={styles.sectionLabel}>WHAT WE OFFER</span>
-          <h2 className={styles.title}>SERVICES BUILT FOR F&B <span>EXCELLENCE</span></h2>
+          <h2 id="services-heading" className={styles.title}>SERVICES BUILT FOR F&B <span>EXCELLENCE</span></h2>
           <p className={styles.subtitle}>
             From concept to kitchen, from menu to mastery — every service
             is designed to deliver measurable results and unforgettable dining experiences.
