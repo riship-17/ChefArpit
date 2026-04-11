@@ -39,6 +39,13 @@ gsap.defaults({
   duration: 0.8
 });
 
+// ─── Mobile viewport height fix (--vh) ─────────
+function setVh() {
+  document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+}
+setVh();
+window.addEventListener('resize', setVh);
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -51,28 +58,31 @@ function App() {
     };
   }, []);
 
-  // ─── Refresh ScrollTrigger on resize ─────────
+  // ─── Refresh ScrollTrigger on resize (deep) ───
   useEffect(() => {
     let resizeTimer;
     const handleResize = () => {
       clearTimeout(resizeTimer);
-      // Debounce — wait 150ms after resize stops
       resizeTimer = setTimeout(() => {
-        ScrollTrigger.refresh();
+        ScrollTrigger.refresh(true); // deep refresh — recalculates all positions
       }, 150);
     };
+
+    // Listen for refreshInit to catch mobile chrome changes
+    ScrollTrigger.addEventListener("refreshInit", () => ScrollTrigger.update());
 
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
+      ScrollTrigger.removeEventListener("refreshInit", () => ScrollTrigger.update());
       clearTimeout(resizeTimer);
     };
   }, []);
 
-  // ─── Refresh after fonts load ─────────────────
+  // ─── Refresh after fonts and images load ──────
   useEffect(() => {
     document.fonts.ready.then(() => {
-      ScrollTrigger.refresh();
+      ScrollTrigger.refresh(true);
     });
   }, []);
 
