@@ -2,101 +2,133 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from './CaseStudies.module.css';
+import NeuButton from '../shared/NeuButton/NeuButton';
 
 const EASE = 'power3.out';
 
 const caseStudies = [
   {
     id: "01",
-    tag: "MENU ENGINEERING",
-    headline: "How We Increased Restaurant Revenue by 30%",
-    subline: "A bloated menu, declining loyalty, and rising food costs — fixed in 8 weeks.",
-    client: "Mid-Scale Casual Dining Restaurant",
-    location: "Ahmedabad, Gujarat",
-    duration: "8 Weeks",
-    challenge: {
-      label: "THE SITUATION",
-      text: "The restaurant was operating with 120+ menu items with no clear identity. Kitchen staff were overwhelmed, food costs had crept to 38%, and repeat customer rates were declining quarter on quarter. The menu was the problem — and no one had named it yet."
+    tag: "ROOFTOP CAFÉ",
+    client: "BLACK BAGHEERA",
+    location: "Sola, Ahmedabad",
+    headline: "Aligning a wild vibe with kitchen precision.",
+    subline: "When the atmosphere is this loud, the food and service can't afford to be quiet.",
+    accentColor: "#1a3c34", // Moody Jungle Green
+    accentLight: "rgba(26, 60, 52, 0.05)",
+    story: {
+      before: "A stunning rooftop venue with a strong brand identity but a menu that lacked focus. Kitchen operations were struggling to keep up with the vibe's promise during peak hours.",
+      shift: "The food now carries the same weight as the view. Operational standards have turned a high-pressure kitchen into a streamlined representative of the brand's wild spirit."
     },
-    approach: {
-      label: "THE APPROACH",
-      steps: [
-        "Full menu audit — dish-level profitability mapped across every item",
-        "Reduced menu from 120 to 48 focused, high-margin hero dishes",
-        "Developed 6 signature dishes as brand anchors guests return for",
-        "Retrained kitchen team on new recipes, plating, and portion standards",
-        "Implemented station-level SOPs to lock in consistency every shift"
-      ]
-    },
-    results: [
-      { value: "30",  suffix: "%", label: "Revenue Increase", sublabel: "within 3 months of relaunch" },
-      { value: "22",  suffix: "%", label: "Food Cost Reduction", sublabel: "from 38% down to 29.6%" },
-      { value: "48",  suffix: "",  label: "Optimized Menu Items", sublabel: "from 120+ dishes" },
-      { value: "8",   suffix: "wk", label: "Project Duration", sublabel: "from audit to full implementation" }
-    ],
-    accentColor: "#C08552"
+    signals: [
+      {
+        icon: "leaf",
+        headline: "Kitchen Chaos → Clarity",
+        text: "The backend system now moves as smoothly as the guest experience itself."
+      },
+      {
+        icon: "check",
+        headline: "Menu Focus Refined",
+        text: "Streamlined the culinary journey into a profitable, brand-aligned experience."
+      },
+      {
+        icon: "star",
+        headline: "Operational Confidence",
+        text: "Staff empowerment through standards that ensure every plate meets the vision."
+      }
+    ]
   },
   {
     id: "02",
-    tag: "KITCHEN BUILD",
-    headline: "Zero to Operational: A Cloud Kitchen Launched in 6 Weeks",
-    subline: "An empty space. No equipment. No team. No menu. Operational in 42 days.",
-    client: "Cloud Kitchen Startup",
-    location: "Surat, Gujarat",
-    duration: "6 Weeks",
-    challenge: {
-      label: "THE SITUATION",
-      text: "A first-time F&B entrepreneur had secured a location and funding but had no kitchen, no team, no menu, and no operational knowledge. They needed a full build — from concept to cook — under tight timeline and budget pressure."
+    tag: "LUXURY CAFÉ",
+    client: "CAFEZZA BE CAFFEINATED",
+    location: "Kudasan, Gandhinagar",
+    headline: "Making every detail match the fusion promise.",
+    subline: "Moving a top-tier café from 'very good' to an undeniable premium destination.",
+    accentColor: "#C5A059", // Warm Gold
+    accentLight: "rgba(197, 160, 89, 0.08)",
+    story: {
+      before: "Already a favorite for fusion food, but the service choreography and brand storytelling were missing the final polish required for true luxury status.",
+      shift: "Every touchpoint now reflects the premium promise. The staff doesn't just serve; they curate an experience that guests recognize as elite."
     },
-    approach: {
-      label: "THE APPROACH",
-      steps: [
-        "Full kitchen layout design for 3 concurrent cuisine production lines",
-        "Equipment sourcing with vendor negotiation — 18% under initial budget",
-        "Hiring roadmap and kitchen brigade structuring for 12-person team",
-        "Recipe development and standardization across 3 menus, 90+ dishes",
-        "Complete SOP documentation — every station, every process, written and trained"
-      ]
-    },
-    results: [
-      { value: "42",  suffix: "d", label: "Days to Launch", sublabel: "from empty space to first order" },
-      { value: "3",   suffix: "",  label: "Cuisine Lines", sublabel: "running concurrently from day one" },
-      { value: "90",  suffix: "+", label: "Dishes Standardized", sublabel: "across all 3 brand menus" },
-      { value: "18",  suffix: "%", label: "Under Budget", sublabel: "on equipment procurement" }
-    ],
-    accentColor: "#8C5A3C"
+    signals: [
+      {
+        icon: "star",
+        headline: "Service Choreography",
+        text: "Trained hospitality that matches the premium nature of the interior and menu."
+      },
+      {
+        icon: "check",
+        headline: "Refined Storytelling",
+        text: "Tightened the menu narrative to reflect fusion expertise and luxury positioning."
+      },
+      {
+        icon: "leaf",
+        headline: "Consistent Excellence",
+        text: "From first coffee to late-night fusion, the quality stays locked across every order."
+      }
+    ]
   },
   {
     id: "03",
-    tag: "CONCEPT DEVELOPMENT",
-    headline: "From Blank Page to Fully Booked — In 12 Weeks",
-    subline: "Investors, a venue, and a vision. We turned it into a dining destination.",
-    client: "Luxury Fine Dining Venture",
-    location: "Ahmedabad, Gujarat",
-    duration: "12 Weeks",
-    challenge: {
-      label: "THE SITUATION",
-      text: "The investors had capital and a stunning venue but zero culinary direction. No concept, no brand identity, no chef team, no menu. Ahmedabad's fine dining space was increasingly competitive, and they needed to enter with something people had never seen before."
+    tag: "CONTEMPORARY FINE DINE",
+    client: "THE MASALA SECRETS",
+    location: "Kudasan, Gandhinagar",
+    headline: "Engineering consistency for a five-star vision.",
+    subline: "Building the operational engine to deliver luxury at scale, every single night.",
+    accentColor: "#4a1010", // Deep Burgundy
+    accentLight: "rgba(74, 16, 16, 0.05)",
+    story: {
+      before: "A vision of luxury that lacked the underlying operational architecture to deliver five-star consistency during high-pressure dinner services.",
+      shift: "The systems now match the vision. Excellence is no longer an accident; it's a documented, repeatable, and trained standard across the brigade."
     },
-    approach: {
-      label: "THE APPROACH",
-      steps: [
-        "Concept development — Progressive Indian cuisine with regional storytelling as the brand pillar",
-        "Chef recruitment and full brigade structure designed for the concept",
-        "10-course tasting menu created with wine and mocktail pairing documentation",
-        "Service choreography — FOH training aligned to the culinary narrative",
-        "Soft launch strategy with food media outreach and influencer dining coordination"
-      ]
-    },
-    results: [
-      { value: "100", suffix: "%", label: "Booked on Opening Week", sublabel: "zero walk-ins — fully reserved" },
-      { value: "4.8", suffix: "★", label: "Average Guest Rating", sublabel: "across first 60 covers" },
-      { value: "10",  suffix: "",  label: "Course Tasting Menu", sublabel: "with full pairing documentation" },
-      { value: "12",  suffix: "wk", label: "Concept to Opening", sublabel: "blank page to first service" }
-    ],
-    accentColor: "#4B2E2B"
+    signals: [
+      {
+        icon: "check",
+        headline: "Five-Star Systems",
+        text: "Engineered the operational foundation needed to deliver high-end consistency."
+      },
+      {
+        icon: "star",
+        headline: "Kitchen Flow Mastery",
+        text: "Optimized the brigade workflow to ensure plating precision during rush hours."
+      },
+      {
+        icon: "arrow",
+        headline: "Service Protocols",
+        text: "Documented every step of the guest journey for a flawless fine-dining feel."
+      }
+    ]
   }
 ];
+
+const Icon = ({ name, color }) => {
+  const icons = {
+    leaf: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z"></path>
+        <path d="M11 20v-5.5"></path>
+      </svg>
+    ),
+    star: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+      </svg>
+    ),
+    check: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    ),
+    arrow: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="7" y1="17" x2="17" y2="7"></line>
+        <polyline points="7 7 17 7 17 17"></polyline>
+      </svg>
+    )
+  };
+  return icons[name] || null;
+};
 
 const CaseStudies = () => {
   const sectionRef = useRef(null);
@@ -108,104 +140,51 @@ const CaseStudies = () => {
   useGSAP(() => {
     // Section header — left/right split reveal:
     gsap.from(headerLeftRef.current, {
-      x: -25, opacity: 0, duration: 0.4, ease: EASE,
-      onStart: () => { headerLeftRef.current.style.willChange = 'opacity, transform'; },
-      onComplete: () => { headerLeftRef.current.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: sectionRef.current, start: "top bottom", once: true, invalidateOnRefresh: true }
+      x: -25, opacity: 0, duration: 0.5, ease: EASE,
+      scrollTrigger: { trigger: sectionRef.current, start: "top bottom", once: true }
     });
     gsap.from(headerRightRef.current, {
-      x: 25, opacity: 0, duration: 0.4, ease: EASE,
-      onStart: () => { headerRightRef.current.style.willChange = 'opacity, transform'; },
-      onComplete: () => { headerRightRef.current.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: sectionRef.current, start: "top bottom", once: true, invalidateOnRefresh: true }
+      x: 25, opacity: 0, duration: 0.5, ease: EASE,
+      scrollTrigger: { trigger: sectionRef.current, start: "top bottom", once: true }
     });
 
     // Each card — staggered reveal:
     cardRefs.current.forEach((card, i) => {
+      if (!card) return;
+
       gsap.from(card, {
-        y: 25, opacity: 0, duration: 0.4, ease: EASE,
-        onStart: () => { card.style.willChange = 'opacity, transform'; },
-        onComplete: () => { card.style.willChange = 'auto'; },
-        scrollTrigger: { trigger: card, start: "top bottom", once: true, toggleActions: "play none none none", invalidateOnRefresh: true }
+        y: 30, opacity: 0, duration: 0.6, ease: EASE,
+        scrollTrigger: { trigger: card, start: "top 85%", once: true }
       });
 
-      // Left panel slides from left:
-      const leftPanel = card.querySelector(`.${styles.leftPanel}`);
-      gsap.from(leftPanel, {
-        x: -25, opacity: 0, duration: 0.4, ease: EASE,
-        onStart: () => { leftPanel.style.willChange = 'opacity, transform'; },
-        onComplete: () => { leftPanel.style.willChange = 'auto'; },
-        scrollTrigger: { trigger: card, start: "top bottom", once: true, invalidateOnRefresh: true }
+      // Left panel elements sequential:
+      const leftElements = card.querySelectorAll(`.${styles.badge}, .${styles.caseId}, .${styles.clientName}, .${styles.headline}, .${styles.subline}, .${styles.locationTag}`);
+      gsap.from(leftElements, {
+        x: -15, opacity: 0, stagger: 0.08, duration: 0.5, ease: EASE,
+        scrollTrigger: { trigger: card, start: "top 80%", once: true }
       });
 
-      // Right panel content fades up in sequence:
-      const rightEls = card.querySelectorAll(`.${styles.challengeCol}, .${styles.approachCol}, .${styles.metricsRow}`);
-      
-      let mm = gsap.matchMedia();
-      mm.add({
-        isDesktop: "(min-width: 901px)",
-        isMobile: "(max-width: 900px)"
-      }, (context) => {
-        let { isDesktop } = context.conditions;
-        
-        if (isDesktop) {
-          gsap.from(rightEls, {
-            y: 15, opacity: 0, stagger: 0.06, duration: 0.35, ease: EASE,
-            delay: 0.2,
-            onStart: () => { rightEls.forEach(el => el.style.willChange = 'opacity, transform'); },
-            onComplete: () => { rightEls.forEach(el => el.style.willChange = 'auto'); },
-            scrollTrigger: { trigger: card, start: "top bottom", once: true, invalidateOnRefresh: true }
-          });
-        } else {
-          rightEls.forEach((el) => {
-            gsap.from(el, {
-              y: 15, opacity: 0, duration: 0.35, ease: EASE,
-              onStart: () => { el.style.willChange = 'opacity, transform'; },
-              onComplete: () => { el.style.willChange = 'auto'; },
-              scrollTrigger: { trigger: el, start: "top bottom", once: true, invalidateOnRefresh: true }
-            });
-          });
-        }
+      // Signal blocks sequence:
+      const signals = card.querySelectorAll(`.${styles.signalBlock}`);
+      gsap.from(signals, {
+        y: 20, opacity: 0, stagger: 0.1, duration: 0.5, ease: EASE,
+        delay: 0.3,
+        scrollTrigger: { trigger: card, start: "top 75%", once: true }
       });
 
-      // Metric numbers count up:
-      const metricEls = card.querySelectorAll(`.${styles.metricNumber}`);
-      metricEls.forEach((el) => {
-        const raw = el.dataset.value;
-        const suffix = el.dataset.suffix;
-        const num = parseFloat(raw);
-
-        if (!isNaN(num)) {
-          gsap.fromTo({ val: 0 }, { val: 0 }, {
-            val: num,
-            duration: 1.2,
-            ease: 'power2.out',
-            onStart: () => { el.style.willChange = 'opacity, transform'; }, // Prep for numbers if needed
-            onComplete: () => { el.style.willChange = 'auto'; },
-            onUpdate() {
-              const v = this.targets()[0].val;
-              el.textContent = (Number.isInteger(num) ? Math.round(v) : v.toFixed(1)) + suffix;
-            },
-            scrollTrigger: { trigger: el, start: "top bottom", once: true, invalidateOnRefresh: true }
-          });
-        }
-      });
-      
-      // Approach step lines draw in on hover
-      const steps = card.querySelectorAll(`.${styles.stepItem}`);
-      card.addEventListener('mouseenter', () => {
-        gsap.from(steps, {
-          x: 10, opacity: 0.5, stagger: 0.05, duration: 0.3, overwrite: 'auto'
-        });
+      // Story columns:
+      const stories = card.querySelectorAll(`.${styles.storyCol}`);
+      gsap.from(stories, {
+        y: 15, opacity: 0, stagger: 0.15, duration: 0.5, ease: EASE,
+        delay: 0.5,
+        scrollTrigger: { trigger: card, start: "top 70%", once: true }
       });
     });
 
     // CTA block reveal:
     gsap.from(ctaBlockRef.current, {
-      y: 20, opacity: 0, duration: 0.4, ease: EASE,
-      onStart: () => { ctaBlockRef.current.style.willChange = 'opacity, transform'; },
-      onComplete: () => { ctaBlockRef.current.style.willChange = 'auto'; },
-      scrollTrigger: { trigger: ctaBlockRef.current, start: "top bottom", once: true, invalidateOnRefresh: true }
+      y: 20, opacity: 0, duration: 0.6, ease: EASE,
+      scrollTrigger: { trigger: ctaBlockRef.current, start: "top bottom", once: true }
     });
 
   }, { scope: sectionRef });
@@ -213,7 +192,7 @@ const CaseStudies = () => {
   return (
     <section className={styles.section} ref={sectionRef} id="case-studies">
       <div className={styles.container}>
-        
+
         {/* Section Header */}
         <div className={styles.headerLine}>
           <div className={styles.headerLeft} ref={headerLeftRef}>
@@ -221,15 +200,15 @@ const CaseStudies = () => {
               <span className={styles.eyebrowLine}></span>
               PROVEN RESULTS
             </div>
-            <h2 id="case-studies-heading" className={styles.title}><span>RESULTS</span> THAT<br/>SPEAK FOR THEMSELVES</h2>
+            <h2 id="case-studies-heading" className={styles.title}><span>RESTAURANT</span> STORIES<br />THAT SCALE.</h2>
           </div>
           <div className={styles.headerRight} ref={headerRightRef}>
             <p className={styles.desc}>
               Real challenges. Tailored strategies. Measurable outcomes.
-              Every engagement is built to deliver lasting impact — 
-              not just advice, but transformation.
+              We don't quote numbers because every problem is unique —
+              we build the systems that make those numbers inevitable.
             </p>
-            <p className={styles.note}>* All client names anonymized for confidentiality.</p>
+            <p className={styles.note}>Featured Partners: Black Bagheera, Cafezza, The Masala Secrets.</p>
           </div>
         </div>
 
@@ -238,82 +217,76 @@ const CaseStudies = () => {
         {/* Case Studies Grid */}
         <div className={styles.casesGrid}>
           {caseStudies.map((caseStudy, index) => (
-            <div 
-              key={caseStudy.id} 
-              className={styles.cardOuter} 
+            <div
+              key={caseStudy.id}
+              className={styles.cardOuter}
               ref={el => cardRefs.current[index] = el}
+              style={{ '--brand-accent': caseStudy.accentColor, '--brand-light': caseStudy.accentLight }}
             >
-              
+
               {/* Left Panel */}
               <div className={styles.leftPanel}>
                 <div className={styles.bgNumeral}>{caseStudy.id}</div>
-                
-                <div className={styles.leftTop}>
+
+                <div className={styles.leftContent}>
                   <div className={styles.badge}>
                     <span className={styles.badgeDot}></span>
                     {caseStudy.tag}
                   </div>
-                  <div className={styles.caseId}>CASE STUDY — {caseStudy.id}</div>
-                  <h3 className={styles.headline}>{caseStudy.headline}</h3>
-                  <p className={styles.subline}>{caseStudy.subline}</p>
-                </div>
 
-                <div className={styles.leftBottom}>
+                  <div className={styles.clientGroup}>
+                    <div className={styles.caseId}>CASE STUDY — {caseStudy.id}</div>
+                    <h3 className={styles.clientName}>{caseStudy.client}</h3>
+                    <div className={styles.locationTag}>{caseStudy.location}</div>
+                  </div>
+
                   <div className={styles.leftDivider}></div>
-                  <div className={styles.clientGrid}>
-                    <div className={styles.clientRow}>
-                      <div className={styles.clientLabel}>CLIENT</div>
-                      <div className={styles.clientValue}>{caseStudy.client}</div>
-                    </div>
-                    <div className={styles.locDurRow}>
-                      <div className={styles.clientLabel}>LOCATION  ·  DURATION</div>
-                      <div className={styles.locDurValue}>{caseStudy.location}  ·  {caseStudy.duration}</div>
-                    </div>
+
+                  <div className={styles.headingGroup}>
+                    <h4 className={styles.headline}>{caseStudy.headline}</h4>
+                    <p className={styles.subline}>{caseStudy.subline}</p>
                   </div>
                 </div>
               </div>
 
               {/* Right Panel */}
               <div className={styles.rightPanel}>
-                <div className={styles.topHalf}>
-                  
-                  <div className={styles.challengeCol}>
-                    <div className={styles.colLabel}>
-                      <span className={styles.colLine}></span>
-                      {caseStudy.challenge.label}
-                    </div>
-                    <p className={styles.challengeText}>{caseStudy.challenge.text}</p>
-                  </div>
 
-                  <div className={styles.approachCol}>
-                    <div className={styles.colLabel}>
-                      <span className={styles.colLine}></span>
-                      {caseStudy.approach.label}
-                    </div>
-                    <div className={styles.stepsList}>
-                      {caseStudy.approach.steps.map((step, idx) => (
-                        <div key={idx} className={styles.stepItem}>
-                          <div className={styles.stepNum}>0{idx + 1}</div>
-                          <div className={styles.stepText}>{step}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className={styles.rightDivider}></div>
-
-                <div className={styles.metricsRow}>
-                  {caseStudy.results.map((result, idx) => (
-                    <div key={idx} className={styles.metricBlock}>
-                      <div className={styles.metricNumber} data-value={result.value} data-suffix={result.suffix}>
-                        0{result.suffix}
+                {/* Signal Strip */}
+                <div className={styles.signalStrip}>
+                  {caseStudy.signals.map((signal, idx) => (
+                    <div key={idx} className={styles.signalBlock}>
+                      <div className={styles.signalIcon}>
+                        <Icon name={signal.icon} color={caseStudy.accentColor} />
                       </div>
-                      <div className={styles.metricLabel}>{result.label}</div>
-                      <div className={styles.metricSub}>{result.sublabel}</div>
+                      <div className={styles.signalMeta}>
+                        <h5 className={styles.signalHeadline}>{signal.headline}</h5>
+                        <p className={styles.signalText}>{signal.text}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
+
+                <div className={styles.panelDivider}></div>
+
+                {/* Story Panel */}
+                <div className={styles.storyPanel}>
+                  <div className={styles.storyCol}>
+                    <div className={styles.colLabel}>
+                      <span className={styles.colLine}></span>
+                      THE BEFORE
+                    </div>
+                    <p className={styles.storyText}>{caseStudy.story.before}</p>
+                  </div>
+                  <div className={styles.storyCol}>
+                    <div className={styles.colLabel}>
+                      <span className={styles.colLine}></span>
+                      THE SHIFT
+                    </div>
+                    <p className={styles.storyText}>{caseStudy.story.shift}</p>
+                  </div>
+                </div>
+
               </div>
 
             </div>
@@ -324,11 +297,16 @@ const CaseStudies = () => {
         <div className={styles.ctaContainer} ref={ctaBlockRef}>
           <div className={styles.ctaBgText}>YOUR STORY</div>
           <div className={styles.ctaLeft}>
-            <span className={styles.ctaEyebrow}>READY TO WRITE YOUR CASE STUDY?</span>
-            <h3 className={styles.ctaHeading}>EVERY GREAT RESULT STARTS WITH ONE CONVERSATION.</h3>
+            <span className={styles.ctaEyebrow}>START YOUR TRANSFORMATION</span>
+            <h3 className={styles.ctaHeading}>YOUR RESTAURANT COULD BE THE NEXT STORY HERE.</h3>
+            <p className={styles.ctaSub}>Every engagement starts with a conversation — not a contract.</p>
           </div>
           <div className={styles.ctaRight}>
-            <button className={styles.ctaBtn}>START YOUR CONSULTATION →</button>
+            <NeuButton 
+              text="LET'S TALK ABOUT YOUR PLACE →" 
+              className={styles.ctaNeuBtn}
+              onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+            />
           </div>
         </div>
 

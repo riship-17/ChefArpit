@@ -1,0 +1,41 @@
+.neuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: var(--color-espresso);
+  color: var(--color-cream);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s cubic-bezier(0.2, 0, 0, 1);
+  box-shadow: 4px 4px 0px 0px #4f3431;
+  width: fit-content;
+  position: relative;
+  z-index: 1;
+}
+
+.neuButton:hover {
+  box-shadow: 0px 0px 0px 0px #000000;
+  transform: translate(4px, 4px);
+}
+
+.neuButton:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Optional full-width modifier */
+.fullWidth {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .neuButton {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+}

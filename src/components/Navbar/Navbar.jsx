@@ -102,11 +102,6 @@ const Navbar = () => {
       ref={navRef}
       className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}
     >
-      <div className={`${styles.topStrip} ${isScrolled ? styles.hidden : ''}`}>
-        <div className={styles.topStripText}>
-          arpitrmacwan@gmail.com  ·  +91-720-1020-208  ·  Mon–Fri: 11AM–8PM
-        </div>
-      </div>
       
       <div className={styles.navBody}>
         <div className={styles.container}>
@@ -170,10 +165,6 @@ const Navbar = () => {
               ))}
             </div>
             
-            <div style={{ marginTop: '40px', textAlign: 'center', fontFamily: 'Roboto Condensed, sans-serif', color: 'rgba(255,248,240,0.5)', fontSize: '14px', lineHeight: '1.8' }}>
-              <div>+91-720-1020-208</div>
-              <div>arpitrmacwan@gmail.com</div>
-            </div>
 
             <div className={styles.mobileSocials}>
               <a 

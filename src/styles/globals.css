@@ -1,12 +1,12 @@
 :root {
   /* Breakpoints as CSS custom properties
      (reference only — use in JS if needed) */
-  --bp-mobile:   480px;
-  --bp-phablet:  640px;
-  --bp-tablet:   768px;
-  --bp-laptop:   1024px;
-  --bp-desktop:  1280px;
-  --bp-wide:     1536px;
+  --bp-mobile: 480px;
+  --bp-phablet: 640px;
+  --bp-tablet: 768px;
+  --bp-laptop: 1024px;
+  --bp-desktop: 1280px;
+  --bp-wide: 1536px;
 }
 
 /* ─── MEDIA QUERY REFERENCE CARD ─────────────────
@@ -28,7 +28,9 @@
 ──────────────────────────────────────────────── */
 
 /* ─── UNIVERSAL RESET ─────────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -43,44 +45,44 @@ body {
 
 :root {
   /* ─── FONTS ─── */
-  --font-display:    'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
-  --font-body:       'Montserrat', sans-serif;
-  --font-condensed:  'Roboto Condensed', sans-serif;
+  --font-display: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-condensed: 'Roboto Condensed', sans-serif;
 
   /* ─── BRAND COLORS ─── */
-  --cream:           #FFF8F0;
-  --gold:            #C08552;
-  --gold-light:      #D4A574;
-  --gold-muted:      rgba(192, 133, 82, 0.55);
-  --gold-faint:      rgba(192, 133, 82, 0.12);
-  --brown:           #8C5A3C;
-  --brown-light:     #A67050;
-  --dark:            #4B2E2B;
-  --dark-80:         rgba(75, 46, 43, 0.8);
-  --dark-50:         rgba(75, 46, 43, 0.5);
-  --dark-30:         rgba(75, 46, 43, 0.3);
-  --white:           #FFFFFF;
-  --cream-80:        rgba(255, 248, 240, 0.8);
-  --cream-60:        rgba(255, 248, 240, 0.6);
-  --cream-30:        rgba(255, 248, 240, 0.3);
+  --cream: #FFF8F0;
+  --gold: #C08552;
+  --gold-light: #D4A574;
+  --gold-muted: rgba(192, 133, 82, 0.55);
+  --gold-faint: rgba(192, 133, 82, 0.12);
+  --brown: #8C5A3C;
+  --brown-light: #A67050;
+  --dark: #4B2E2B;
+  --dark-80: rgba(75, 46, 43, 0.8);
+  --dark-50: rgba(75, 46, 43, 0.5);
+  --dark-30: rgba(75, 46, 43, 0.3);
+  --white: #FFFFFF;
+  --cream-80: rgba(255, 248, 240, 0.8);
+  --cream-60: rgba(255, 248, 240, 0.6);
+  --cream-30: rgba(255, 248, 240, 0.3);
 
   /* ─── EXTENDED FONT COLORS ─── */
   /* Use these wherever color adds meaning or hierarchy */
-  --text-primary:    #3a2a28;
-  --text-secondary:  rgba(58, 42, 40, 0.72);
-  --text-muted:      rgba(58, 42, 40, 0.48);
-  --text-faint:      rgba(58, 42, 40, 0.28);
-  --text-gold:       #C08552;
-  --text-gold-dark:  #8C5A3C;
-  --text-on-dark:    #FFF8F0;
+  --text-primary: #3a2a28;
+  --text-secondary: rgba(58, 42, 40, 0.72);
+  --text-muted: rgba(58, 42, 40, 0.48);
+  --text-faint: rgba(58, 42, 40, 0.28);
+  --text-gold: #C08552;
+  --text-gold-dark: #8C5A3C;
+  --text-on-dark: #FFF8F0;
   --text-on-dark-muted: rgba(255, 248, 240, 0.6);
   --text-on-dark-faint: rgba(255, 248, 240, 0.35);
   --text-accent-warm: #A67050;
 
   /* ─── SECTION PADDING ─── */
-  --section-pad-desktop:     180px 0;
-  --section-pad-tablet:      120px 0;
-  --section-pad-mobile:      100px 0;
+  --section-pad-desktop: 180px 0;
+  --section-pad-tablet: 120px 0;
+  --section-pad-mobile: 100px 0;
 }
 
 html {
@@ -121,18 +123,18 @@ h4 {
 
 /* ─── FLUID TYPOGRAPHY SCALE ─────────────────── */
 :root {
-  --text-hero:      clamp(36px, 8vw, 96px);
-  --text-h2:        clamp(28px, 5vw, 64px);
-  --text-h3:        clamp(20px, 3.5vw, 36px);
-  --text-body-lg:   clamp(15px, 2vw, 18px);
-  --text-body:      clamp(14px, 1.8vw, 16px);
-  --text-small:     clamp(11px, 1.5vw, 13px);
-  --text-label:     clamp(10px, 1.2vw, 12px);
+  --text-hero: clamp(36px, 8vw, 96px);
+  --text-h2: clamp(28px, 5vw, 64px);
+  --text-h3: clamp(20px, 3.5vw, 36px);
+  --text-body-lg: clamp(15px, 2vw, 18px);
+  --text-body: clamp(14px, 1.8vw, 16px);
+  --text-small: clamp(11px, 1.5vw, 13px);
+  --text-label: clamp(10px, 1.2vw, 12px);
 
   /* Bebas Neue specific (it needs more tracking) */
-  --track-hero:     clamp(2px, 0.5vw, 8px);
-  --track-heading:  clamp(1px, 0.3vw, 4px);
-  --track-label:    clamp(3px, 0.4vw, 6px);
+  --track-hero: clamp(2px, 0.5vw, 8px);
+  --track-heading: clamp(1px, 0.3vw, 4px);
+  --track-label: clamp(3px, 0.4vw, 6px);
 }
 
 /* ─── FLUID SECTION PADDING ──────────────────── */
@@ -142,11 +144,14 @@ h4 {
 
 section {
   padding: var(--section-pad) 0;
-  scroll-margin-top: 80px; /* navbar height */
+  scroll-margin-top: 80px;
+  /* navbar height */
 }
 
 @media (max-width: 768px) {
-  section { scroll-margin-top: 64px; }
+  section {
+    scroll-margin-top: 64px;
+  }
 }
 
 /* ─── SAFE CONTAINER SYSTEM ───────────────────── */
@@ -158,15 +163,21 @@ section {
 }
 
 @media (max-width: 1024px) {
-  .container { padding: 0 32px; }
+  .container {
+    padding: 0 32px;
+  }
 }
 
 @media (max-width: 768px) {
-  .container { padding: 0 20px; }
+  .container {
+    padding: 0 20px;
+  }
 }
 
 @media (max-width: 480px) {
-  .container { padding: 0 16px; }
+  .container {
+    padding: 0 16px;
+  }
 }
 
 /* Section divider */
@@ -207,6 +218,7 @@ section {
    PREFERS REDUCED MOTION
 ───────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -280,6 +292,7 @@ img {
    PRINT STYLES
 ───────────────────────────────────────────────── */
 @media print {
+
   .navbar,
   .loadingScreen,
   .marquee,

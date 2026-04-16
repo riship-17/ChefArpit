@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import NeuButton from '../shared/NeuButton/NeuButton';
 import styles from './MenuSamples.module.css';
 
 const EASE = 'power3.out';
@@ -394,7 +395,10 @@ const MenuSamples = () => {
               </h3>
             </div>
             <div className={styles.stripRight}>
-              <a href="#contact" className={styles.stripBtn}>REQUEST A CUSTOM MENU →</a>
+              <NeuButton 
+                text="REQUEST A CUSTOM MENU →" 
+                onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+              />
             </div>
           </div>
         </div>
@@ -439,7 +443,11 @@ const MenuSamples = () => {
                       <input type="text" id="business" name="business" placeholder=" " required value={formData.business} onChange={handleChange} />
                       <label htmlFor="business">Restaurant / Business</label>
                     </div>
-                    <button type="submit" className={styles.submitBtn}>SEND ME THE SAMPLE →</button>
+                    <NeuButton 
+                      type="submit" 
+                      fullWidth
+                      text="SEND ME THE SAMPLE →"
+                    />
                   </form>
                   <p className={styles.privacyNote}>No spam. Just one PDF, straight to your inbox.</p>
                 </>

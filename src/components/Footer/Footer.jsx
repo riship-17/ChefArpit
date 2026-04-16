@@ -74,9 +74,6 @@ const Footer = () => {
             <h4 className={styles.colLabel}>CONTACT US</h4>
             <ul className={`${styles.list} ${styles.mono}`}>
               <li>Ahmedabad, Gujarat — 380059</li>
-              <li>+91-720-1020-208</li>
-              <li>arpitrmacwan@gmail.com</li>
-              <li>Mon–Fri: 11AM–8PM</li>
             </ul>
 
             <div className={styles.socialRow}>

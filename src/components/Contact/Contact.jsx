@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import NeuButton from '../shared/NeuButton/NeuButton';
 import styles from './Contact.module.css';
 
 const EASE = 'power3.out';
@@ -140,22 +141,6 @@ const Contact = () => {
                 <span className={styles.detailIcon}><LocationIcon /></span>
                 <span className={styles.detailText}>Ahmedabad, Gujarat — 380059</span>
               </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailIcon}><PhoneIcon /></span>
-                <span className={styles.detailText}>+91-720-1020-208</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailIcon}><EmailIcon /></span>
-                <span className={styles.detailText}>arpitrmacwan@gmail.com</span>
-              </div>
-              <div className={styles.detailRow}>
-                <span className={styles.detailIcon}><ClockIcon /></span>
-                <div className={styles.detailText}>
-                  <span>Monday – Friday: 11:00 AM – 8:00 PM</span>
-                  <span>Saturday: By Appointment Only</span>
-                  <span>Sunday: Closed</span>
-                </div>
-              </div>
             </div>
 
             {/* Social */}
@@ -260,15 +245,15 @@ const Contact = () => {
                 {errors.message && <span id="contact-message-error" className={styles.errorText} role="alert">{errors.message}</span>}
               </div>
 
-              <button
+              <NeuButton
                 type="submit"
-                className={styles.submitBtn}
+                className={styles.submitBtnNeu}
                 ref={submitBtnRef}
                 onMouseEnter={handleBtnEnter}
                 onMouseLeave={handleBtnLeave}
               >
                 SEND MESSAGE →
-              </button>
+              </NeuButton>
 
               <div aria-live="polite">
                  {submitted && (

@@ -16,7 +16,10 @@
   align-items: flex-end;
 }
 
-.headerLeft {}
+.headerLeft {
+
+
+}
 
 .eyebrow {
   display: flex;
@@ -128,7 +131,7 @@
   pointer-events: none;
 }
 
-.leftTop {
+.leftContent {
   flex-grow: 1;
   position: relative;
   z-index: 1;
@@ -143,15 +146,19 @@
   font-size: 11px;
   letter-spacing: 3.5px;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 28px;
+  color: #C5A059;
+  margin-bottom: 32px;
 }
 
 .badgeDot {
   width: 6px;
   height: 6px;
-  background: var(--gold);
+  background: #C5A059;
   border-radius: 0;
+}
+
+.clientGroup {
+  margin-bottom: 32px;
 }
 
 .caseId {
@@ -159,16 +166,49 @@
   font-weight: 400;
   font-size: 10px;
   letter-spacing: 2px;
-  color: var(--cream-60);
-  margin-bottom: 20px;
+  color: var(--cream-80);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.clientName {
+  font-family: var(--font-display);
+  font-size: 44px;
+  letter-spacing: 1px;
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.locationTag {
+  display: inline-block;
+  font-family: var(--font-condensed);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #C5A059;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 4px;
+}
+
+.leftDivider {
+  width: 60px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 32px 0;
+}
+
+.headingGroup {
+  max-width: 90%;
 }
 
 .headline {
   font-family: var(--font-display);
-  font-size: 36px;
-  letter-spacing: 1px;
-  color: var(--cream);
-  line-height: 1.35;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  color: var(--cream-80);
+  line-height: 1.4;
   margin-bottom: 16px;
 }
 
@@ -177,55 +217,7 @@
   font-weight: 300;
   font-size: 15px;
   line-height: 1.7;
-  color: var(--cream-60);
-}
-
-.leftBottom {
-  position: relative;
-  z-index: 1;
-}
-
-.leftDivider {
-  width: 100%;
-  height: 1px;
-  background: rgba(192, 133, 82, 0.2);
-  margin: 32px 0;
-}
-
-.clientGrid {
-  display: flex;
-  flex-direction: column;
-}
-
-.clientLabel {
-  font-family: var(--font-condensed);
-  font-weight: 700;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold-muted);
-  margin-bottom: 4px;
-}
-
-.clientValue {
-  font-family: var(--font-condensed);
-  font-weight: 400;
-  font-size: 14px;
   color: var(--cream-80);
-  line-height: 1.4;
-}
-
-.locDurRow {
-  margin-top: 12px;
-}
-
-.locDurValue {
-  font-family: var(--font-condensed);
-  font-weight: 400;
-  font-size: 14px;
-  color: var(--cream-60);
-  letter-spacing: 1px;
-  margin-top: 4px;
 }
 
 /* ——— Right Panel ——— */
@@ -233,16 +225,74 @@
   flex-grow: 1;
   width: 64%;
   background: #FFFFFF;
-  padding: 52px 52px 0 52px;
+  padding: 52px;
   display: flex;
   flex-direction: column;
 }
 
-.topHalf {
+.signalStrip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.signalBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.signalIcon {
+  width: 40px;
+  height: 40px;
+  background: var(--brand-light, rgba(0,0,0,0.03));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.signalMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.signalHeadline {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+.signalText {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.panelDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+  margin: 40px 0;
+}
+
+/* ——— Story Panel ——— */
+.storyPanel {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: flex-start;
+}
+
+.storyCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .colLabel {
@@ -255,18 +305,15 @@
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 16px;
 }
 
 .colLine {
   width: 2px;
   height: 18px;
-  background: var(--gold);
+  background: var(--brand-accent, var(--gold));
 }
 
-.challengeCol {}
-
-.challengeText {
+.storyText {
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 15px;
@@ -274,106 +321,11 @@
   color: var(--text-secondary);
 }
 
-.approachCol {}
-
-.stepsList {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-top: 16px;
-}
-
-.stepItem {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 11px 0;
-  border-bottom: 1px solid rgba(192, 133, 82, 0.1);
-}
-
-.stepItem:last-child {
-  border-bottom: none;
-}
-
-.stepNum {
-  width: 20px;
-  flex-shrink: 0;
-  font-family: var(--font-condensed);
-  font-weight: 400;
-  font-size: 11px;
-  color: var(--gold-muted);
-  margin-top: 2px;
-}
-
-.stepText {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-}
-
-.rightDivider {
-  width: 100%;
-  height: 1px;
-  background: rgba(192, 133, 82, 0.12);
-  margin: 40px 0 0 0;
-}
-
-.metricsRow {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: rgba(255, 248, 240, 0.6);
-  margin: 0 -52px;
-  padding: 0 52px;
-}
-
-.metricBlock {
-  padding: 32px 0;
-  border-right: 1px solid rgba(192, 133, 82, 0.1);
-  padding-left: 28px;
-  padding-right: 28px;
-}
-
-.metricBlock:first-child {
-  padding-left: 0;
-}
-
-.metricBlock:last-child {
-  border-right: none;
-  padding-right: 0;
-}
-
-.metricNumber {
-  font-family: var(--font-display);
-  font-size: 64px;
-  color: var(--gold);
-  letter-spacing: 1px;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.metricLabel {
-  font-family: var(--font-display);
-  font-size: 18px;
-  letter-spacing: 1px;
-  color: var(--dark);
-  margin-bottom: 4px;
-}
-
-.metricSub {
-  font-family: var(--font-condensed);
-  font-weight: 400;
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.4;
-}
-
 /* ——— Bottom CTA ——— */
 .ctaContainer {
   max-width: 1280px;
   margin: 72px auto 0;
-  padding: 56px 64px;
+  padding: 80px 64px;
   background: var(--dark);
   display: flex;
   align-items: center;
@@ -384,18 +336,19 @@
 
 .ctaBgText {
   font-family: var(--font-display);
-  font-size: 120px;
+  font-size: clamp(100px, 15vw, 200px);
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.02);
   position: absolute;
-  right: -20px;
-  bottom: -20px;
+  right: -40px;
+  bottom: -40px;
   user-select: none;
 }
 
 .ctaLeft {
   position: relative;
   z-index: 1;
+  max-width: 600px;
 }
 
 .ctaEyebrow {
@@ -404,144 +357,104 @@
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 4px;
-  color: var(--gold-muted);
-  margin-bottom: 12px;
+  color: var(--gold-light);
+  margin-bottom: 16px;
 }
 
 .ctaHeading {
   font-family: var(--font-display);
-  font-size: 48px;
+  font-size: clamp(36px, 5vw, 56px);
   letter-spacing: 1px;
   color: var(--cream);
-  max-width: 480px;
-  line-height: 1.1;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.ctaSub {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 17px;
+  color: var(--cream-80);
 }
 
 .ctaRight {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
+
+.ctaNeuBtn {
+  color: var(--gold-light) !important;
 }
 
 .ctaBtn {
   background: var(--gold);
   color: var(--white);
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  padding: 18px 44px;
+  padding: 22px 48px;
   border: none;
   border-radius: 0;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s, transform 0.3s;
+  transition: all 0.4s var(--ease-out);
 }
 
 .ctaBtn:hover {
-  background: var(--dark);
-  color: var(--cream);
-  transform: translateY(-2px);
+  background: var(--white);
+  color: var(--dark);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
-/* ——— Tablet ——— */
+/* ——— Responsiveness ——— */
+
+@media (max-width: 1200px) {
+  .leftPanel { width: 42%; }
+  .rightPanel { width: 58%; padding: 40px; }
+  .clientName { font-size: 38px; }
+}
+
 @media (max-width: 1024px) {
-  .section { padding: var(--section-pad-tablet); }
-  
+  .cardOuter { flex-direction: column; }
   .leftPanel { 
-    width: 40%; 
-    padding: 40px 32px;
+    width: 100%; 
+    min-height: auto; 
+    padding: 60px 40px; 
   }
+  .bgNumeral { font-size: 140px; }
+  .rightPanel { width: 100%; padding: 60px 40px; }
   
-  .rightPanel { 
-    width: 60%; 
-    padding: 40px 36px 0;
+  .signalStrip { gap: 24px; }
+  .storyPanel { gap: 32px; }
+  
+  .ctaContainer { 
+    flex-direction: column; 
+    text-align: center;
+    padding: 80px 40px;
+    gap: 40px;
   }
-  
-  .metricsRow {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 0 -36px;
-    padding: 0 36px;
-  }
-  
-  .metricBlock {
-    padding: 24px 0;
-    border-bottom: 1px solid rgba(192, 133, 82, 0.1);
-  }
-  
-  .metricBlock:nth-child(even) { border-right: none; }
-  .metricBlock:nth-child(n+3) { border-bottom: none; }
-  
-  .topHalf {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  
-  .leftPanel { min-height: 380px; }
+  .ctaHeading { margin-left: auto; margin-right: auto; }
 }
 
-/* ——— Mobile ——— */
 @media (max-width: 768px) {
   .section { padding: var(--section-pad-mobile); }
   .container { padding: 0 24px; }
   
   .headerLine {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 24px;
-  }
-  
-  .title { font-size: 40px; }
-  .headerRight { text-align: center; }
-  
-  .cardOuter {
-    flex-direction: column;
-    border-radius: 0;
-  }
-  
-  .leftPanel {
-    width: 100%;
-    min-height: auto;
-    padding: 40px 28px;
-  }
-  
-  .rightPanel {
-    width: 100%;
-    padding: 32px 24px 0;
-  }
-  
-  .bgNumeral { 
-    font-size: 100px;
-    opacity: 0.06;
-  }
-  
-  .headline {
-    font-size: clamp(22px, 5vw, 32px);
-  }
-
-  .metricsRow {
-    margin: 0;
-    padding: 24px 20px;
-    border-radius: 0;
-  }
-  
-  .metricBlock {
-    border-right: 1px solid rgba(192, 133, 82, 0.1);
-  }
-  .metricBlock:nth-child(even) { border-right: none; }
-  
-  .ctaContainer {
-    flex-direction: column;
-    padding: 40px 24px;
-    text-align: center;
+    align-items: flex-start;
     gap: 32px;
   }
+  .title { font-size: 48px; }
   
-  .ctaHeading {
-    font-size: clamp(22px, 5vw, 30px);
-  }
+  .leftPanel { padding: 48px 24px; }
+  .clientName { font-size: 32px; }
   
-  .ctaBtn { 
-    width: 100%; 
-    margin-top: 24px;
-  }
+  .signalStrip { grid-template-columns: 1fr; gap: 40px; }
+  .storyPanel { grid-template-columns: 1fr; gap: 40px; }
+  
+  .rightPanel { padding: 48px 24px; }
+  
+  .ctaHeading { font-size: 32px; }
+  .ctaBtn { width: 100%; }
 }

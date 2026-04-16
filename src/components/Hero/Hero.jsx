@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ChefImage from '../shared/ChefImage/ChefImage';
+import NeuButton from '../shared/NeuButton/NeuButton';
 import styles from './Hero.module.css';
 
 const EASE = 'power3.out';
@@ -79,8 +80,8 @@ const Hero = ({ isLoading }) => {
           </p>
 
           <div className={styles.ctaGroup} ref={heroBtnsRef}>
-            <button type="button" className={styles.primaryBtn}>EXPLORE OUR SERVICES</button>
-            <button type="button" className={styles.secondaryBtn}>BOOK A CONSULTATION</button>
+            <NeuButton text="EXPLORE OUR SERVICES" onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })} />
+            <NeuButton text="BOOK A CONSULTATION" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} />
           </div>
 
           <div className={styles.statsBar}>
