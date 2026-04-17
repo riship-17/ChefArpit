@@ -19,6 +19,8 @@ const Gallery = lazy(() => import('./components/Gallery/Gallery'));
 const CaseStudies = lazy(() => import('./components/CaseStudies/CaseStudies'));
 const MenuSamples = lazy(() => import('./components/MenuSamples/MenuSamples'));
 
+// ─── Testimonials section removed ─────────────────────
+
 // ─── Register GSAP plugins ─────────────────────
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
