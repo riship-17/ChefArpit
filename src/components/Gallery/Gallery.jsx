@@ -43,18 +43,7 @@ const Gallery = () => {
 };
 
 const cards = [
-  {
-    url: "https://ik.imagekit.io/zvgp583fb/WhatsApp%20Image%202026-04-09%20at%203.37.35%20PM.jpeg",
-    category: "PLATING ART",
-    title: "Culinary Elegance",
-    id: 1,
-  },
-  {
-    url: "https://ik.imagekit.io/zvgp583fb/WhatsApp%20Image%202026-04-09%20at%203.34.38%20PM%20(1).jpeg",
-    category: "FINE DINING",
-    title: "Signature Concepts",
-    id: 2,
-  },
+ 
   {
     url: "https://ik.imagekit.io/zvgp583fb/WhatsApp%20Image%202026-04-09%20at%203.34.54%20PM.jpeg?updatedAt=1775745277938",
     category: "PREP WORK",
@@ -78,12 +67,6 @@ const cards = [
     category: "AWARD WINNER",
     title: "Master Chef",
     id: 7,
-  },
-  {
-    url: "https://ik.imagekit.io/zvgp583fb/WhatsApp%20Image%202026-04-09%20at%203.34.38%20PM%20(4).jpeg?updatedAt=1775745277926",
-    category: "Crafting Culinary Legacy",
-    title: "EXECUTIVE PRESENCE",
-    id: 8,
   },
   {
     url: "https://ik.imagekit.io/zvgp583fb/WhatsApp%20Image%202026-04-09%20at%203.36.43%20PM%20(4).jpeg",

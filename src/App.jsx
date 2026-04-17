@@ -11,7 +11,6 @@ import Marquee from './components/Marquee/Marquee';
 import Services from './components/Services/Services';
 import Stats from './components/Stats/Stats';
 import Process from './components/Process/Process';
-import Testimonials from './components/Testimonials/Testimonials';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import './styles/globals.css';
@@ -141,8 +140,6 @@ function App() {
         <Stats />
 
         <Process />
-
-        <Testimonials />
 
         <Suspense fallback={suspenseFallback}>
             <Gallery />
